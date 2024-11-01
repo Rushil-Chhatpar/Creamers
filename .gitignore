@@ -70,3 +70,9 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+
+# Native libraries
+/Library/Bee/artifacts/Android/d8kzr/libil2cpp.so
+/Library/Bee/artifacts/Android/il2cppOutput/build/arm64-v8a/libil2cpp.dbg.so
+/Library/Bee/artifacts//objcopy_51mi/libil2cpp.dbg.so
+/Library/PackageCache/com.unity.burst/.Runtime/libburst-llvm-16.dylib
