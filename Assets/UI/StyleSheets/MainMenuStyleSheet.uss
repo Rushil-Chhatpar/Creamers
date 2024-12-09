@@ -1,0 +1,33 @@
+:root{
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.base-container{
+	flex-direction: column;
+	align-content: center;
+	flex-wrap: nowrap;
+	justify-content: center;
+	padding-bottom: 700px;
+}
+
+.settings-button{
+	width: 250px;
+	height: 100px;
+	background-color: #ff8400;
+	border-color: white;
+	border-radius: 10px;
+	border-width: 10px;
+	margin: 70px;
+	transition: 0.1s all;
+	
+	color: white;
+	font-size: 45;
+}
+
+.settings-button:active{
+	background-color: #b05b00;
+	border-radius: 40px;
+	scale: 1.15;
+}
