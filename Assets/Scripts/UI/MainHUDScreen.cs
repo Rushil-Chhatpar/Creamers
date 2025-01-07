@@ -114,6 +114,14 @@ public class MainHUDScreen : ScreenBase
         _camPriority = _dynamicCamera.Priority;
         
         _level = Game.Instance.CurrentLevel as StackLevel;
+
+        Game.GameOverEvent.AddListener(GameOver);
+    }
+
+    private void GameOver()
+    {
+        _camPriority++;
+        _zoomOutCamera.Priority = _camPriority;
     }
 
     private void TapButtonClicked()
