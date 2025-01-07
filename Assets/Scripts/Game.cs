@@ -32,6 +32,7 @@ public class Game : MonoBehaviour
     private readonly string _mainMenuSceneName = "MainMenuScene";
 
     public static UnityEvent GameOverEvent = new UnityEvent();
+    public Level CurrentLevel = null;
 
     private void Awake()
     {
@@ -49,6 +50,7 @@ public class Game : MonoBehaviour
         _ = ScreenManager.Instance;
         _ = DataPersistenceManager.Instance;
         GameOverEvent.AddListener(GameOver);
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
     public void GameOver()
@@ -69,4 +71,9 @@ public class Game : MonoBehaviour
         DataPersistenceManager.Instance.SaveGame();
     }
 
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        CurrentLevel = FindFirstObjectByType<Level>();
+        Debug.Assert(CurrentLevel != null, "No Level Object present in this level!!!", this);
+    }
 }

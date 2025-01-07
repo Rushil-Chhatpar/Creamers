@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7539405279888746539}
   - component: {fileID: 8883118432630543306}
   - component: {fileID: 2970030873548940842}
+  - component: {fileID: 7953223039414077722}
   m_Layer: 0
   m_Name: DynamicCamera
   m_TagString: MainCamera
@@ -71,7 +72,7 @@ MonoBehaviour:
     NearClipPlane: 0.1
     FarClipPlane: 5000
     Dutch: 0
-    ModeOverride: 0
+    ModeOverride: 2
     PhysicalProperties:
       GateFit: 2
       SensorSize: {x: 21.946, y: 16.002}
@@ -100,3 +101,20 @@ MonoBehaviour:
   _offset: {x: 0, y: 1, z: 0}
   _smoothingSpeed: 1
   _maxDistFromDropper: 15
+--- !u!114 &7953223039414077722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4539243621571961777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 449ef5ebbe24720439ec31d15f7b6f3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Weight: 1
+  FocusTracking: 0
+  FocusTarget: {fileID: 0}
+  FocusOffset: 0
+  Profile: {fileID: 11400000, guid: 804493191e303d541af3c0e0d4319cc9, type: 2}

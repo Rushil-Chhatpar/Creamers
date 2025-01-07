@@ -78,9 +78,9 @@ GameObject:
   - component: {fileID: 703422918892857714}
   - component: {fileID: 2275452223330751328}
   - component: {fileID: 5920382161994575547}
-  - component: {fileID: 1559717197825004990}
+  - component: {fileID: 2473652444955889191}
   m_Layer: 0
-  m_Name: Dropper
+  m_Name: StackDropper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -155,7 +155,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &1559717197825004990
+--- !u!114 &2473652444955889191
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -164,12 +164,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 8697021075054350176}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2e6aae924809e2458dc84ad0d361b29, type: 3}
+  m_Script: {fileID: 11500000, guid: 71c30b7588b128d4fb2e3abbc454a725, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _creamerPrefab: {fileID: 6513256371248637998, guid: 869a762d12c58a241b9a99a15dec154d, type: 3}
-  _dropLocation: {fileID: 0}
-  _heightTrigger: {fileID: 6450617317286238253}
-  _moveDist: 1.5
-  _horizontalMoveSpeed: 0.9
-  _verticalMoveSpeed: 20
+  _creamerPrefabs:
+  - {fileID: 6513256371248637998, guid: c88a2f00fb5968c47a19c0997589441a, type: 3}
+  _moveDist: 2.5
+  _speedIncreaaseRate: 0.04
+  _useSin: 0
+  _sinMoveSpeed: 1.5
+  _nonSinMoveSpeed: 1.5

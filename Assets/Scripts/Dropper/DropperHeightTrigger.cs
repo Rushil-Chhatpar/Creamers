@@ -4,11 +4,11 @@ public class DropperHeightTrigger : MonoBehaviour
 {
     [SerializeField] private BoxCollider _heightTrigger;
 
-    private Dropper _parent;
+    private StackDropper _parent;
 
     private void Start()
     {
-        _parent = GetComponentInParent<Dropper>();
+        _parent = GetComponentInParent<StackDropper>();
         Debug.Assert(_heightTrigger, "Height Trigger not found!!!");
 
         ScoreManager.Instance.ScoreEvent.AddListener(ScoreEvent);

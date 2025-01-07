@@ -14,7 +14,7 @@ public class Test : MonoBehaviour
     [SerializeField] private Transform _tpPos;
     [SerializeField] private GameObject _creamer;
 
-    [SerializeField] private Dropper _dropper;
+    [SerializeField] private StackDropper _dropper;
 
     private void Awake()
     {

@@ -8,7 +8,7 @@ public class MainHUDScreen : ScreenBase
 
     [SerializeField] private GameObject _creamer;
 
-    private Dropper _dropper;
+    private StackDropper _dropper;
 
     #region Visual Elements
 
@@ -32,6 +32,7 @@ public class MainHUDScreen : ScreenBase
     private CinemachineCamera _zoomOutCamera;
     private int _camPriority = 0;
 
+    private StackLevel _level;
 
     public override void RemoveFromView()
     {
@@ -93,7 +94,7 @@ public class MainHUDScreen : ScreenBase
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        _dropper = FindFirstObjectByType<Dropper>();
+        _dropper = FindFirstObjectByType<StackDropper>();
         Debug.Assert(_dropper, "No Dropper found in the Scene!!!", this);
         ScoreManager.Instance.UpdateScoreEvent.AddListener(UpdateScore);
 
@@ -111,14 +112,13 @@ public class MainHUDScreen : ScreenBase
         }
 
         _camPriority = _dynamicCamera.Priority;
+        
+        _level = Game.Instance.CurrentLevel as StackLevel;
     }
 
     private void TapButtonClicked()
     {
-        if (_dropper)
-        {
-            _dropper.TapButtonPressed();
-        }
+        _level.TapButtonPressed();
     }
 
     private void ZoomOutButtonClicked()
@@ -139,6 +139,7 @@ public class MainHUDScreen : ScreenBase
 
     private void UpdateScore(int score)
     {
-        _scoreLabel.text = score.ToString();
+        if (_scoreLabel != null)
+            _scoreLabel.text = score.ToString();
     }
 }

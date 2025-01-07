@@ -47,6 +47,7 @@ public class CreamerBase : MonoBehaviour
     {
         _isLanded = true;
         Debug.Log("SCORE!");
-        ScoreManager.Instance.ScoreEvent.Invoke(_scoreValue);
+        //ScoreManager.Instance.ScoreEvent.Invoke(_scoreValue);
+        Game.Instance.CurrentLevel.CreamerLandEventCallback();
     }
 }

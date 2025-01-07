@@ -1,151 +1,24 @@
 using System.Collections;
+using System.Collections.Generic;
+using NUnit.Framework;
 using Stateless;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Dropper : MonoBehaviour
+public abstract class Dropper : MonoBehaviour
 {
-    private readonly UnityEvent _tapButtonPressed = new UnityEvent();
+    [SerializeField] protected List<GameObject> _creamerPrefabs;
 
-    [SerializeField] private GameObject _creamerPrefab;
+    protected int _creamerIndex = 0;
 
-    private float _heightToClimb = 0;
-
-    private Vector3 _movePos;
-    private Vector3 _startPos;
-    [SerializeField] private float _moveDist = 1;
-    [SerializeField, Range(0.0f, 0.1f)] private float _speedIncreaaseRate = 0.02f;
-
-    [SerializeField] private bool _useSin = true;
-    [ShowIf("_useSin", true)][SerializeField, Range(0.001f, 1.5f)] private float _sinMoveSpeed = 1;
-    [ShowIf("_useSin", false)][SerializeField, Range(0.001f, 3f)] private float _nonSinMoveSpeed = 0.7f;
-
-    private float _leftX = 0, _rightX = 0;
-    private int _horizontalDir = 1;
-
-    //SerializeField] private float _verticalMoveSpeed = 1;
-
-    private GameObject _currentCreamer = null;
-
-    private int _upwardsMoveMultiplier = 0;
-    public int UpwardsMoveSpeedMultiplier
+    protected void Start()
     {
-        get => _upwardsMoveMultiplier;
-
-        set
-        {
-            if (value < 0)
-            {
-                _upwardsMoveMultiplier = 0;
-            }
-            else
-            {
-                _upwardsMoveMultiplier = value;
-            }
-        }
-    }
-
-    private void Start()
-    {
-        _startPos = transform.position;
-        _tapButtonPressed.AddListener(TapButtonPressedAction);
-
-        Debug.Assert(_creamerPrefab, "Cannot find gameobject: Creamer!!!");
-        SpawnAtBase();
         ScoreManager.Instance.ScoreEvent.AddListener(ScoreEvent);
         Game.GameOverEvent.AddListener(GameOver);
-
-        BoxCollider collider = _creamerPrefab.GetComponent<BoxCollider>();
-        if (collider != null)
-        {
-            _heightToClimb = collider.size.y;
-        }
-
-        float X = transform.position.x;
-        _leftX = X - _moveDist;
-        _rightX = X + _moveDist;
     }
 
-    private void ScoreEvent(int score)
-    {
-        float newY = transform.position.y + _heightToClimb;
-        transform.position = new Vector3(transform.position.x, newY, transform.position.z);
-        SpawnAtBase();
-        AdjustDropperMovement();
-    }
+    protected abstract void ScoreEvent(int score);
 
-    private void GameOver()
-    {
-        ScoreManager.Instance.ScoreEvent.RemoveListener(ScoreEvent);
-    }
-
-    private void SpawnAtBase()
-    {
-        GameObject creamer = Instantiate(_creamerPrefab, transform.position, Quaternion.identity, transform);
-        _currentCreamer = creamer;
-    }
-
-    void FixedUpdate()
-    {
-        // left and right
-        if (_useSin)
-        {
-            _movePos.x = _startPos.x + Mathf.Sin(Time.time * _sinMoveSpeed) * _moveDist;
-        }
-        else
-        {
-            _movePos.x = transform.position.x + (_horizontalDir * Time.fixedDeltaTime * _nonSinMoveSpeed);
-            if (_movePos.x > _rightX || _movePos.x < _leftX)
-            {
-                _horizontalDir *= -1;
-                //_movePos.x = _horizontalDir * _moveDist;
-            }
-        }
-
-        // up
-        //if (UpwardsMoveSpeedMultiplier > 0)
-        //{
-        //    _movePos.y = transform.position.y + _heightToClimb;
-        //    UpwardsMoveSpeedMultiplier = 0;
-        //}
-        //_movePos.y = transform.position.y + (_verticalMoveSpeed * Time.fixedDeltaTime * UpwardsMoveSpeedMultiplier);
-
-        transform.position = new Vector3(_movePos.x, transform.position.y, _startPos.z);
-    }
-
-    public void TapButtonPressed()
-    {
-        _tapButtonPressed.Invoke();
-    }
-
-    private void TapButtonPressedAction()
-    {
-        _currentCreamer.transform.SetParent(null);
-        _currentCreamer.GetComponent<CreamerBase>().Drop();
-        //GameObject creamer = Instantiate(_creamerPrefab, transform.position, Quaternion.identity);
-    }
-
-    private void AdjustDropperMovement()
-    {
-        if (_useSin)
-        {
-            _sinMoveSpeed += _sinMoveSpeed * _speedIncreaaseRate;
-        }
-        else
-        {
-            _nonSinMoveSpeed += _nonSinMoveSpeed * _speedIncreaaseRate;
-            int rand = Random.Range(0, 2);
-            if (rand == 0)
-            {
-                // left
-                transform.position = new Vector3(_leftX, transform.position.y, transform.position.z);
-                _horizontalDir = 1;
-            }
-            else
-            {
-                transform.position = new Vector3(_rightX, transform.position.y, transform.position.z);
-                _horizontalDir = -1;
-            }
-        }
-    }
+    protected abstract void GameOver();
 }
