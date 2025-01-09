@@ -34,7 +34,7 @@ public class SettingsMenuScreen : ScreenBase
         if (Application.isPlaying)
             return;
 
-        StartCoroutine(Initialize());
+        //StartCoroutine(Initialize());
     }
 
     protected override IEnumerator Initialize()

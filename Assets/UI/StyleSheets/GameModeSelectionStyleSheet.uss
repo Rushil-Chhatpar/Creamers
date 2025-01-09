@@ -1,0 +1,54 @@
+:root{
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding-bottom: 300px;
+}
+
+.base-container{
+	flex-direction: row;
+	align-content: center;
+	flex-wrap: nowrap;
+	justify-content: center;
+	padding-bottom: 200px;
+}
+
+.mode-button{
+	width: 200px;
+	height: 200px;
+	background-color: #ff8400;
+	border-color: white;
+	border-radius: 10px;
+	border-width: 10px;
+	margin: 70px;
+	transition: 0.1s all;
+	
+	color: white;
+	font-size: 45;
+}
+
+.mode-button:active{
+	background-color: #b05b00;
+	border-radius: 40px;
+	scale: 1.15;
+}
+
+.back-button{
+	width: 200px;
+	height: 100px;
+	background-color: #ff8400;
+	border-color: white;
+	border-radius: 10px;
+	border-width: 10px;
+	margin: 70px;
+	transition: 0.1s all;
+	
+	color: white;
+	font-size: 45;
+}
+
+.back-button:active{
+	background-color: #b05b00;
+	border-radius: 40px;
+	scale: 1.15;
+}

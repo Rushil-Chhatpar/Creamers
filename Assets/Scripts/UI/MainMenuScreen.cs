@@ -27,7 +27,7 @@ public class MainMenuScreen : ScreenBase
         if (Application.isPlaying)
             return;
 
-        StartCoroutine(Initialize());
+        //StartCoroutine(Initialize());
     }
 
     private void Start()
@@ -94,7 +94,9 @@ public class MainMenuScreen : ScreenBase
 
     private void PlayButtonClicked()
     {
-        SceneManager.LoadScene(_firstLevelName);
+        //SceneManager.LoadScene(_firstLevelName);
+        ScreenManager.Instance.ViewScreen<GameModeSelectionScreen>();
+        ScreenManager.Instance.RemoveScreenFromView<MainMenuScreen>();
     }
 
     private void SettingsButtonClicked()
