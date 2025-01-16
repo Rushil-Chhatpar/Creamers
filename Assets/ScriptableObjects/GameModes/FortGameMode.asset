@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c72a463b909265443811c4d6a74d7227, type: 3}
   m_Name: FortGameMode
   m_EditorClassIdentifier: 
-  _dropperPrefab: {fileID: 0}
+  _dropperPrefab: {fileID: 2550346526334664638, guid: 2a8ff579af68f654aa4b9c73bc9eb1f9, type: 3}

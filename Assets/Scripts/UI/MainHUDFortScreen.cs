@@ -3,12 +3,12 @@ using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.UIElements;
 using UnityEngine.UIElements.Experimental;
+using Stateless;
 
 public class MainHUDFortScreen : ScreenBase
 {
     [SerializeField] private GameObject _creamer;
 
-    private StackDropper _dropper;
 
     #region Visual Elements
 
@@ -32,7 +32,21 @@ public class MainHUDFortScreen : ScreenBase
     private CinemachineCamera _zoomOutCamera;
     private int _camPriority = 0;
 
-    private StackLevel _level;
+    private FortLevel _level;
+
+    private enum State
+    {
+        Dragging,
+        NoDrag
+    }
+
+    private enum Trigger
+    {
+        EnterDragging,
+        ReleaseDrag,
+    }
+
+    private StateMachine<State, Trigger> _stateMachine;
 
     public override void RemoveFromView()
     {
@@ -40,9 +54,9 @@ public class MainHUDFortScreen : ScreenBase
         root.style.display = DisplayStyle.None;
 
         //_tapButton.clicked -= TapButtonClicked;
-        _tapButton.UnregisterCallback<ClickEvent>(TapButtonClicked);
         _tapButton.UnregisterCallback<PointerDownEvent>(PointerDownEventCallback);
         _tapButton.UnregisterCallback<PointerMoveEvent>(PointerMoveEventCallback);
+        _tapButton.UnregisterCallback<PointerUpEvent>(PointerUpEventCallback);
     }
 
     public override void View()
@@ -64,9 +78,9 @@ public class MainHUDFortScreen : ScreenBase
 
         Button tapButton = Create<Button>(_tapButtonClassName);
         //tapButton.clicked += TapButtonClicked;
-        tapButton.RegisterCallback<ClickEvent>(TapButtonClicked);
         tapButton.RegisterCallback<PointerDownEvent>(PointerDownEventCallback, TrickleDown.TrickleDown);
         tapButton.RegisterCallback<PointerMoveEvent>(PointerMoveEventCallback, TrickleDown.TrickleDown);
+        tapButton.RegisterCallback<PointerUpEvent>(PointerUpEventCallback, TrickleDown.TrickleDown);
 
         Label scoreLabel = Create<Label>(_scoreLabelClassName);
         int score = 0;
@@ -100,8 +114,6 @@ public class MainHUDFortScreen : ScreenBase
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        _dropper = FindFirstObjectByType<StackDropper>();
-        Debug.Assert(_dropper, "No Dropper found in the Scene!!!", this);
         ScoreManager.Instance.UpdateScoreEvent.AddListener(UpdateScore);
 
         StartCoroutine(Initialize());
@@ -119,31 +131,67 @@ public class MainHUDFortScreen : ScreenBase
 
         _camPriority = _dynamicCamera.Priority;
 
-        //_level = Game.Instance.CurrentLevel as StackLevel;
+        _level = Game.Instance.CurrentLevel as FortLevel;
 
         Game.GameOverEvent.AddListener(GameOver);
+
+        DefineStateMachine();
+    }
+
+    private void DefineStateMachine()
+    {
+        _stateMachine = new StateMachine<State, Trigger>(State.NoDrag);
+
+        _stateMachine.Configure(State.NoDrag)
+            .Permit(Trigger.EnterDragging, State.Dragging)
+            .OnEntry(OnDragExit);
+
+        _stateMachine.Configure(State.Dragging)
+            .Permit(Trigger.ReleaseDrag, State.NoDrag)
+            .OnEntry(OnDragEnter);
+
+    }
+
+    private void OnDragEnter()
+    {
+        Debug.Log("Drag Enter");
+        _level.SpawnCreamer();
+    }
+
+    private void OnDragExit()
+    {
+        Debug.Log("Drag Exit");
+        _level.ReleaseCreamer();
     }
 
     private void PointerDownEventCallback(PointerDownEvent evt)
     {
-        Debug.Log("PointerDownEventCallback. Mouse Pos: " + evt.position);
+        if (_stateMachine.State == State.NoDrag)
+        {
+            _level.UpdateDropperPosition(evt.position);
+            _stateMachine.Fire(Trigger.EnterDragging);
+        }
     }
 
     private void PointerMoveEventCallback(PointerMoveEvent evt)
     {
-        Debug.Log("PointerMoveEventCallback. Mouse Pos: " + evt.position);
+        if (_stateMachine.State == State.Dragging)
+        {
+            //Debug.Log("PointerMoveEventCallback. Mouse Pos: " + evt.position);
+            _level.UpdateDropperPosition(evt.position);
+        }
+    }
+
+    private void PointerUpEventCallback(PointerUpEvent evt)
+    {
+        if (_stateMachine.State == State.Dragging)
+            _stateMachine.Fire(Trigger.ReleaseDrag);
     }
 
     private void GameOver()
     {
         _camPriority++;
         _zoomOutCamera.Priority = _camPriority;
-    }
-
-    private void TapButtonClicked(ClickEvent evt)
-    {
-        //_level.TapButtonPressed();
-        Debug.Log("TapButtonClicked. Mouse Pos: " + evt.position);
     }
 
     private void ZoomOutButtonClicked()

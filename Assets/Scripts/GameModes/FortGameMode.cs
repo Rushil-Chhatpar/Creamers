@@ -13,6 +13,6 @@ public class FortGameMode : GameModeBase
 
     public override GameObject DropperInitialize(Transform transform)
     {
-        return GameObject.Instantiate(_dropperPrefab, transform);
+        return GameObject.Instantiate(_dropperPrefab, transform.position, Quaternion.identity);
     }
 }
