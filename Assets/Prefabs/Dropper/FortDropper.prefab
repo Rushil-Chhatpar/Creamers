@@ -45,4 +45,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _creamerPrefabs:
-  - {fileID: 6513256371248637998, guid: c88a2f00fb5968c47a19c0997589441a, type: 3}
+  - {fileID: 6513256371248637998, guid: c2e6065c4bdf6534aab30f0a1ebd6969, type: 3}
+  DropperSensitivity: 1

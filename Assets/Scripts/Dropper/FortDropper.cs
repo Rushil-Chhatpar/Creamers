@@ -4,6 +4,7 @@ public class FortDropper : Dropper
 {
 
     private GameObject _currentCreamer = null;
+    [Range(1.0f, 2.0f)] public float DropperSensitivity = 1.0f;
 
     private void Start()
     {

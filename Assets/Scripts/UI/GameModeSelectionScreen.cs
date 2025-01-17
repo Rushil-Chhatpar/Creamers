@@ -6,7 +6,8 @@ using UnityEngine.UIElements;
 
 public class GameModeSelectionScreen : ScreenBase
 {
-    [SerializeField] private string _firstLevelName;
+    [SerializeField] private string _stackLevelName;
+    [SerializeField] private string _fortLevelName;
 
     #region Visual Elements
 
@@ -82,10 +83,11 @@ public class GameModeSelectionScreen : ScreenBase
 
     private void FortModeButtonClicked()
     {
+        SceneManager.LoadScene(_fortLevelName);
     }
 
     private void StackModeButtonClicked()
     {
-        SceneManager.LoadScene(_firstLevelName);
+        SceneManager.LoadScene(_stackLevelName);
     }
 }

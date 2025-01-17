@@ -11,6 +11,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Scenes/FortScene.unity
+    guid: 240dd3f3df936424f8229998dbfa8910
   m_configObjects:
     com.unity.adaptiveperformance.google.android.provider_settings: {fileID: 11400000, guid: d542a74f10c6d994fb4c4b94eb569a33, type: 2}
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 46446a02bc1a3b24393ac9f77c07558f, type: 2}
