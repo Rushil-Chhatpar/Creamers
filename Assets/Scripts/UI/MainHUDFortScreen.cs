@@ -118,7 +118,8 @@ public class MainHUDFortScreen : ScreenBase
 
         StartCoroutine(Initialize());
 
-        DynamicCamera dynamicCamera = FindFirstObjectByType<DynamicCamera>();
+        //DynamicCamera dynamicCamera = FindFirstObjectByType<DynamicCamera>();
+        FortCamera dynamicCamera = FindAnyObjectByType<FortCamera>();
         if (dynamicCamera)
         {
             _dynamicCamera = dynamicCamera.GetComponent<CinemachineCamera>();
@@ -177,7 +178,7 @@ public class MainHUDFortScreen : ScreenBase
     {
         if (_stateMachine.State == State.Dragging)
         {
-            //Debug.Log("PointerMoveEventCallback. Mouse Pos: " + evt.position);
+            Debug.Log("PointerMoveEventCallback. Mouse Pos: " + evt.position);
             _level.UpdateDropperPosition(evt.position);
         }
     }

@@ -15,11 +15,11 @@ public class FortLevel : Level
     public void UpdateDropperPosition(Vector2 screenPos)
     {
         Camera outputCamera = _cinemachineBrain.OutputCamera;
-        float camZ = _dropperTransform.position.z - outputCamera.transform.position.z;
-        Vector3 sPos = new Vector3(screenPos.x,Screen.height - screenPos.y, camZ);
+        float camZ = (outputCamera.transform.position.z - _dropperTransform.position.z) * 2.0f;
+        Vector3 sPos = new Vector3(screenPos.x, outputCamera.pixelHeight - screenPos.y, outputCamera.transform.position.z * -1.0f);
         Vector3 worldPoint = outputCamera.ScreenToWorldPoint(sPos);
         worldPoint.z = _dropperTransform.position.z;
-        //Debug.Log("Position: " + worldPoint);
+        Debug.Log("Position: " + worldPoint);
         _fortDropper.UpdatePosition(worldPoint);
     }
 
