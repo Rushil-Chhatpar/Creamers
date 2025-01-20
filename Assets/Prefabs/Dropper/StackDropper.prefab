@@ -174,3 +174,4 @@ MonoBehaviour:
   _useSin: 0
   _sinMoveSpeed: 1.5
   _nonSinMoveSpeed: 1.5
+  _verticalMoveSpeed: 3

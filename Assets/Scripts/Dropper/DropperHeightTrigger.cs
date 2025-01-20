@@ -19,17 +19,17 @@ public class DropperHeightTrigger : MonoBehaviour
         //CheckForTrigger();
     }
 
-    private void CheckForTrigger()
+    public void CheckForTrigger()
     {
         int num = 0;
         Vector3 center = _heightTrigger.transform.TransformPoint(_heightTrigger.center);
         Vector3 halfExtents = _heightTrigger.size / 2.0f;
         Quaternion rotation = _heightTrigger.transform.rotation;
 
-        Collider[] hitColliders = Physics.OverlapBox(center, halfExtents, rotation);
+        Collider[] hitColliders = Physics.OverlapBox(center, halfExtents, rotation, ~0, QueryTriggerInteraction.Collide);
         foreach (Collider hitCollider in hitColliders)
         {
-            if (hitCollider.GetComponent<CreamerBase>()?.IsLanded == true)
+            if (hitCollider.isTrigger && hitCollider.GetComponent<CreamerBase>()?.IsLanded == true)
             {
                 num++;
             }
@@ -46,11 +46,11 @@ public class DropperHeightTrigger : MonoBehaviour
     //    }
     //}
 
-    //private void OnTriggerExit(Collider other)
-    //{
-    //    if (other.GetComponent<CreamerBase>()?.IsLanded == true)
-    //    {
-    //        CheckForTrigger();
-    //    }
-    //}
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.GetComponent<CreamerBase>()?.IsLanded == true)
+        {
+            CheckForTrigger();
+        }
+    }
 }

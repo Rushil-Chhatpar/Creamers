@@ -94,8 +94,8 @@ public class MainHUDScreen : ScreenBase
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        _dropper = FindFirstObjectByType<StackDropper>();
-        Debug.Assert(_dropper, "No Dropper found in the Scene!!!", this);
+        //_dropper = FindFirstObjectByType<StackDropper>();
+        //Debug.Assert(_dropper, "No Dropper found in the Scene!!!", this);
         ScoreManager.Instance.UpdateScoreEvent.AddListener(UpdateScore);
 
         StartCoroutine(Initialize());

@@ -21,7 +21,9 @@ public class StackDropper : Dropper
     private float _leftX = 0, _rightX = 0;
     private int _horizontalDir = 1;
 
-    //SerializeField] private float _verticalMoveSpeed = 1;
+    [SerializeField] private float _verticalMoveSpeed = 1;
+
+    private DropperHeightTrigger _trigger;
 
     private GameObject _currentCreamer = null;
 
@@ -48,6 +50,7 @@ public class StackDropper : Dropper
         base.Start();
         _startPos = transform.position;
         _tapButtonPressed.AddListener(TapButtonPressedAction);
+        _trigger = GetComponentInChildren<DropperHeightTrigger>();
 
         Debug.Assert(_creamerPrefabs.Count > 0, "Cannot find gameobject: Creamer!!!");
         SpawnAtBase();
@@ -58,7 +61,9 @@ public class StackDropper : Dropper
 
         if (collider != null)
         {
-            _heightToClimb = collider.size.y;
+            //_heightToClimb = collider.size.y;
+            Vector3 worldSize = Vector2.Scale(collider.size, collider.transform.lossyScale);
+            _heightToClimb = worldSize.y;
         }
 
         float X = transform.position.x;
@@ -68,8 +73,9 @@ public class StackDropper : Dropper
 
     protected override void ScoreEvent(int score)
     {
-        float newY = transform.position.y + _heightToClimb;
-        transform.position = new Vector3(transform.position.x, newY, transform.position.z);
+        _trigger.CheckForTrigger();
+        //float newY = transform.position.y + (_heightToClimb * UpwardsMoveSpeedMultiplier);
+        //transform.position = new Vector3(transform.position.x, newY, transform.position.z);
         SpawnAtBase();
         AdjustDropperMovement();
     }
@@ -109,9 +115,9 @@ public class StackDropper : Dropper
         //    _movePos.y = transform.position.y + _heightToClimb;
         //    UpwardsMoveSpeedMultiplier = 0;
         //}
-        //_movePos.y = transform.position.y + (_verticalMoveSpeed * Time.fixedDeltaTime * UpwardsMoveSpeedMultiplier);
+        _movePos.y = transform.position.y + (_verticalMoveSpeed * Time.fixedDeltaTime * UpwardsMoveSpeedMultiplier);
 
-        transform.position = new Vector3(_movePos.x, transform.position.y, _startPos.z);
+        transform.position = new Vector3(_movePos.x, _movePos.y, _startPos.z);
     }
 
     public void TapButtonPressed()
