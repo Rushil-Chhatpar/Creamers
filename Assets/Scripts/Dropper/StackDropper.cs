@@ -94,6 +94,11 @@ public class StackDropper : Dropper
 
     void FixedUpdate()
     {
+        // TODO: Need a better fix for this 
+        if (UpwardsMoveSpeedMultiplier > 0)
+        {
+            _trigger.CheckForTrigger();
+        }
         // left and right
         if (_useSin)
         {
