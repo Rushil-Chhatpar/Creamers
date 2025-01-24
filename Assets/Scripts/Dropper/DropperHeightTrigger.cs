@@ -46,11 +46,11 @@ public class DropperHeightTrigger : MonoBehaviour
     //    }
     //}
 
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.GetComponent<CreamerBase>()?.IsLanded == true)
-        {
-            CheckForTrigger();
-        }
-    }
+    //private void OnTriggerExit(Collider other)
+    //{
+    //    if (other.GetComponent<CreamerBase>()?.IsLanded == true)
+    //    {
+    //        CheckForTrigger();
+    //    }
+    //}
 }
