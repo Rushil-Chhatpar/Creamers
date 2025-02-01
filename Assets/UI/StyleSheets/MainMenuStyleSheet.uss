@@ -12,22 +12,91 @@
 	padding-bottom: 700px;
 }
 
-.settings-button{
-	width: 250px;
-	height: 100px;
+.play-button{
+	width: 300px;
+	height: 300px;
+	/* background-color: #ff8400; */
 	background-color: #ff8400;
+	background-image: resource('Play_Icon');
+	-unity-background-scale-mode: scale-to-fit;
+	-unity-background-image-tint-color: black;
 	border-color: white;
-	border-radius: 10px;
+	border-radius: 150px;
 	border-width: 10px;
-	margin: 70px;
 	transition: 0.1s all;
-	
+	margin: 70px;
+	margin-bottom: 200px;
+
 	color: white;
 	font-size: 45;
 }
 
+.settings-button{
+	position: absolute;
+	right: 75px;
+	top: 75px;
+	width: 180px;
+	height: 180px;
+	background-color: #ff8400;
+	background-image: resource('Settings_Icon');
+	-unity-background-scale-mode: scale-to-fit;
+	-unity-background-image-tint-color: black;
+	border-color: white;
+	border-radius: 90px;
+	border-width: 10px;
+	transition: 0.1s all;
+	padding: 10px;
+	color: white;
+	font-size: 45;
+}
+
+.shop-button{
+	position: absolute;
+	left: 75px;
+	top: 75px;
+	width: 180px;
+	height: 180px;
+	background-color: #ff8400;
+	background-image: resource('Shopping_Icon');
+	-unity-background-scale-mode: scale-to-fit;
+	-unity-background-image-tint-color: black;
+	border-color: white;
+	border-radius: 90px;
+	border-width: 10px;
+	transition: 0.1s all;
+	padding: 10px;
+	color: white;
+	font-size: 45;
+}
+
+.highscore-label{
+	position: absolute;
+	top: 75px;
+	font-size: 45px;
+	color: white;
+}
+
+.highscore-number-label{
+	position: absolute;
+	top: 130px;
+	font-size: 90px;
+	color: white;
+}
+
+.play-button:active{
+	background-color: #b05b00;
+	-unity-background-image-tint-color: white;
+	scale: 1.15;
+}
+
 .settings-button:active{
 	background-color: #b05b00;
-	border-radius: 40px;
+	-unity-background-image-tint-color: white;
+	scale: 1.15;
+}
+
+.shop-button:active{
+	background-color: #b05b00;
+	-unity-background-image-tint-color: white;
 	scale: 1.15;
 }

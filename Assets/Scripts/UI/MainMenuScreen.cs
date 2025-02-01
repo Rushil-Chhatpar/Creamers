@@ -14,10 +14,17 @@ public class MainMenuScreen : ScreenBase
 
     private Button _playButton;
     private Button _settingsButton;
-    private Button _exitButton;
+    private Button _shopButton;
+    
+    private Label _highScoreLabel;
+    private Label _highScoreNumberLabel;
 
+    private readonly string _playButtonClassName = "play-button";
     private readonly string _settingsButtonClassName = "settings-button";
     private readonly string _baseContainerClassName = "base-container";
+    private readonly string _highScoreLabelClassName = "highscore-label";
+    private readonly string _highScoreNumberLabelClassName = "highscore-number-label";
+    private readonly string _shopButtonClassName = "shop-button";
 
     #endregion
 
@@ -27,7 +34,7 @@ public class MainMenuScreen : ScreenBase
         if (Application.isPlaying)
             return;
 
-        //StartCoroutine(Initialize());
+        StartCoroutine(Initialize());
     }
 
     private void Start()
@@ -52,7 +59,8 @@ public class MainMenuScreen : ScreenBase
 
         _playButton.clicked -= PlayButtonClicked;
         _settingsButton.clicked -= SettingsButtonClicked;
-        _exitButton.clicked -= ExitButtonClicked;
+        _shopButton.clicked -= ShopButtonClicked;
+        //_exitButton.clicked -= ExitButtonClicked;
         if (_cinemachineMainCamera && _cinemachineSettingsCamera)
         {
             _cinemachineMainCamera.enabled = false;
@@ -69,27 +77,31 @@ public class MainMenuScreen : ScreenBase
 
         root.styleSheets.Add(_styleSheet);
 
-        VisualElement baseContainer = Create<VisualElement>(_baseContainerClassName);
-
-        Button playButton = Create<Button>(_settingsButtonClassName);
-        playButton.text ="Play";
+        Button playButton = Create<Button>(_playButtonClassName);
         playButton.clicked += PlayButtonClicked;
 
         Button settingsButton = Create<Button>(_settingsButtonClassName);
-        settingsButton.text = "Settings";
         settingsButton.clicked += SettingsButtonClicked;
 
-        Button exitButton = Create<Button>(_settingsButtonClassName);
-        exitButton.text = "Exit";
-        exitButton.clicked += ExitButtonClicked;
+        Button shopButton = Create<Button>(_shopButtonClassName);
+        shopButton.clicked += ShopButtonClicked;
+
+        Label highScoreLabel = Create<Label>(_highScoreLabelClassName);
+        highScoreLabel.text = "High Score";
+
+        Label highScoreNumberLabel = Create<Label>(_highScoreNumberLabelClassName);
+        highScoreNumberLabel.text = "NUMB";
 
         _playButton = playButton;
         _settingsButton = settingsButton;
-        _exitButton = exitButton;
-        baseContainer.Add(playButton);
-        baseContainer.Add(settingsButton);
-        baseContainer.Add(exitButton);
-        root.Add(baseContainer);
+        _shopButton = shopButton;
+        _highScoreLabel = highScoreLabel;
+        _highScoreNumberLabel = highScoreNumberLabel;
+        root.Add(highScoreLabel);
+        root.Add(highScoreNumberLabel);
+        root.Add(shopButton);
+        root.Add(settingsButton);
+        root.Add(playButton);
     }
 
     private void PlayButtonClicked()
@@ -105,8 +117,8 @@ public class MainMenuScreen : ScreenBase
         ScreenManager.Instance.RemoveScreenFromView<MainMenuScreen>();
     }
 
-    private void ExitButtonClicked()
+    private void ShopButtonClicked()
     {
-        Application.Quit();
+        // TODO: Shop Functionality
     }
 }

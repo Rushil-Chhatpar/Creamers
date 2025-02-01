@@ -69,9 +69,6 @@ public class ScoreManager : MonoBehaviour, IDataPersistence
     private void GameOver()
     {
         Score = 0;
-        
-        // Highscore stuff here
-
     }
 
     public void LoadData(GameData data)
