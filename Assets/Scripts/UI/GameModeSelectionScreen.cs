@@ -27,7 +27,7 @@ public class GameModeSelectionScreen : ScreenBase
         if (Application.isPlaying)
             return;
 
-        StartCoroutine(Initialize());
+        //StartCoroutine(Initialize());
     }
 
     public override void RemoveFromView()
