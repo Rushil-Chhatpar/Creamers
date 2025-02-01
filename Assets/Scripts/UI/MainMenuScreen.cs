@@ -34,7 +34,7 @@ public class MainMenuScreen : ScreenBase
         if (Application.isPlaying)
             return;
 
-        StartCoroutine(Initialize());
+        //StartCoroutine(Initialize());
     }
 
     private void Start()
@@ -90,7 +90,7 @@ public class MainMenuScreen : ScreenBase
         highScoreLabel.text = "High Score";
 
         Label highScoreNumberLabel = Create<Label>(_highScoreNumberLabelClassName);
-        highScoreNumberLabel.text = "NUMB";
+        highScoreNumberLabel.text = ScoreManager.Instance.HighScore.ToString();
 
         _playButton = playButton;
         _settingsButton = settingsButton;
