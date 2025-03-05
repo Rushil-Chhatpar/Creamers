@@ -14,17 +14,19 @@ public class MainHUDScreen : ScreenBase
 
     private Button _tapButton;
     private Label _scoreLabel;
-    private Label _highScoreLabel;
     private Button _zoomOutButton;
+    private Button _pauseButton;
     
     private bool _zoomOutActive = false;
+    private bool _isPaused = false;
 
     private readonly string _baseContainerClassName = "base-container";
     private readonly string _tapButtonClassName = "tap-button";
-    private readonly string _scoreLabelClassName = "score-label";
     private readonly string _zoomOutButtonClassName = "zoomout-button";
     private readonly string _zoomInClassName = "zoomin-button";
-    private readonly string _highScoreLabelClassName = "highscore-label";
+    private readonly string _highScoreNumberLabelClassName = "highscore-number-label";
+    private readonly string _pauseButtonClassName = "pause-button";
+    private readonly string _pausedButtonClassName = "paused-button";
 
     #endregion
 
@@ -62,25 +64,25 @@ public class MainHUDScreen : ScreenBase
         Button tapButton = Create<Button>(_tapButtonClassName);
         tapButton.clicked += TapButtonClicked;
 
-        Label scoreLabel = Create<Label>(_scoreLabelClassName);
+        Label scoreLabel = Create<Label>(_highScoreNumberLabelClassName);
         int score = 0;
         scoreLabel.text = score.ToString();
-
-        Label highScoreLabel = Create<Label>(_highScoreLabelClassName);
-        highScoreLabel.text = "HS:" + ScoreManager.Instance.HighScore.ToString();
 
         Button zoomOutButton = Create<Button>(_zoomOutButtonClassName);
         zoomOutButton.clicked += ZoomOutButtonClicked;
 
+        Button pauseButton = Create<Button>(_pauseButtonClassName);
+        pauseButton.clicked += PauseButtonClicked;
+
         _scoreLabel = scoreLabel;
-        _highScoreLabel = highScoreLabel;
         _tapButton = tapButton;
         _zoomOutButton = zoomOutButton;
+        _pauseButton = pauseButton;
         baseContainer.Add(scoreLabel);
         baseContainer.Add(tapButton);
         root.Add(baseContainer);
-        root.Add(highScoreLabel);
         root.Add(zoomOutButton);
+        root.Add(pauseButton);
     }
 
     private void OnValidate()
@@ -88,7 +90,7 @@ public class MainHUDScreen : ScreenBase
         if (Application.isPlaying)
             return;
 
-        StartCoroutine(Initialize());
+        //StartCoroutine(Initialize());
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -98,8 +100,8 @@ public class MainHUDScreen : ScreenBase
         //Debug.Assert(_dropper, "No Dropper found in the Scene!!!", this);
         ScoreManager.Instance.UpdateScoreEvent.AddListener(UpdateScore);
 
-        StartCoroutine(Initialize());
-        
+        //StartCoroutine(Initialize());
+
         DynamicCamera dynamicCamera = FindFirstObjectByType<DynamicCamera>();
         if (dynamicCamera)
         {
@@ -111,9 +113,10 @@ public class MainHUDScreen : ScreenBase
             _zoomOutCamera = zoomOutCamera.GetComponent<CinemachineCamera>();
         }
 
-        _camPriority = _dynamicCamera.Priority;
-        
+
         _level = Game.Instance.CurrentLevel as StackLevel;
+
+        _camPriority = _level.InitialCamPriority + 10;
 
         Game.GameOverEvent.AddListener(GameOver);
     }
@@ -126,7 +129,8 @@ public class MainHUDScreen : ScreenBase
 
     private void TapButtonClicked()
     {
-        _level.TapButtonPressed();
+        if (!_isPaused)
+            _level.TapButtonPressed();
     }
 
     private void ZoomOutButtonClicked()
@@ -143,6 +147,21 @@ public class MainHUDScreen : ScreenBase
             _zoomOutButton.RemoveFromClassList(_zoomInClassName);
             _dynamicCamera.Priority = _camPriority;
         }
+    }
+
+    private void PauseButtonClicked()
+    {
+        _isPaused = !_isPaused;
+        if(_isPaused)
+        {
+            _pauseButton.AddToClassList(_pausedButtonClassName);
+        }
+        else
+        {
+            _pauseButton.RemoveFromClassList(_pausedButtonClassName);
+        }
+
+        Time.timeScale = _isPaused ? 0 : 1;
     }
 
     private void UpdateScore(int score)

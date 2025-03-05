@@ -20,8 +20,8 @@ public class DynamicCamera : MonoBehaviour
     private void Start()
     {
         _startingPos = transform.position;
-        _dropperTransform = FindFirstObjectByType<Dropper>().gameObject.transform;
-        Debug.Assert(_dropperTransform, "No Dropper found in the scene!!!", this);
+        //_dropperTransform = FindFirstObjectByType<Dropper>().gameObject.transform;
+        //Debug.Assert(_dropperTransform, "No Dropper found in the scene!!!", this);
         _cmCamera = GetComponent<CinemachineCamera>();
         Debug.Assert(_cmCamera, "Script not attached to a valid cinemachine camera object!!!", this);
 
@@ -38,8 +38,16 @@ public class DynamicCamera : MonoBehaviour
         UpdateCameraPos();
     }
 
+    public void InitDropperTransform(Transform dropperTransform)
+    {
+        _dropperTransform = dropperTransform;
+    }
+
     private void UpdateCameraPos()
     {
+        if(!_dropperTransform)
+            { return; }
+
         if (_dropperTransform.position.y > (transform.position.y - _offset.y))
         {
             float doubleDist = (transform.position - _dropperTransform.position).sqrMagnitude;
