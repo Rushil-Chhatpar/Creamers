@@ -21,6 +21,10 @@ public class GameModeSelectionScreen : ScreenBase
 
     #endregion
 
+    private void Start()
+    {
+        base.Start();
+    }
 
     private void OnValidate()
     {

@@ -16,6 +16,11 @@ public class GameOverScreen : ScreenBase
 
     #endregion
 
+    private void Start()
+    {
+        base.Start();
+    }
+
     public override void RemoveFromView()
     {
         VisualElement root = _document.rootVisualElement;

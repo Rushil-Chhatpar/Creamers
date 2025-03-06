@@ -1,0 +1,24 @@
+.settings-button{
+	position: absolute;
+	right: 75px;
+	top: 75px;
+	width: 180px;
+	height: 180px;
+	background-color: #ff8400;
+	background-image: resource('Settings_Icon');
+	-unity-background-scale-mode: scale-to-fit;
+	-unity-background-image-tint-color: black;
+	border-color: white;
+	border-radius: 90px;
+	border-width: 10px;
+	transition: 0.1s all;
+	padding: 10px;
+	color: white;
+	font-size: 45;
+}
+
+.settings-button:active{
+	background-color: #b05b00;
+	-unity-background-image-tint-color: white;
+	scale: 1.15;
+}

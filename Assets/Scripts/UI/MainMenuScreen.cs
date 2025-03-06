@@ -28,18 +28,22 @@ public class MainMenuScreen : ScreenBase
 
     #endregion
 
+    private StackLevel _level;
 
     private void OnValidate()
     {
         if (Application.isPlaying)
             return;
 
-        //StartCoroutine(Initialize());
+        StartCoroutine(Initialize());
     }
 
     private void Start()
     {
+        base.Start();
         StartCoroutine(Initialize());
+
+        _level = Game.Instance.CurrentLevel as StackLevel;
     }
 
     public override void View()
@@ -107,8 +111,10 @@ public class MainMenuScreen : ScreenBase
     private void PlayButtonClicked()
     {
         //SceneManager.LoadScene(_firstLevelName);
-        ScreenManager.Instance.ViewScreen<GameModeSelectionScreen>();
+        //ScreenManager.Instance.ViewScreen<GameModeSelectionScreen>();
+        //perform stack level start
         ScreenManager.Instance.RemoveScreenFromView<MainMenuScreen>();
+        _level.InitialSequence();
     }
 
     private void SettingsButtonClicked()
