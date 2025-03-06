@@ -40,6 +40,7 @@ public class MainMenuScreen : ScreenBase
 
     private void Start()
     {
+        base.Start();
         StartCoroutine(Initialize());
 
         _level = Game.Instance.CurrentLevel as StackLevel;

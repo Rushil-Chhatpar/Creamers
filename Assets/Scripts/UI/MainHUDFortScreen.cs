@@ -114,6 +114,7 @@ public class MainHUDFortScreen : ScreenBase
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        base.Start();
         ScoreManager.Instance.UpdateScoreEvent.AddListener(UpdateScore);
 
         StartCoroutine(Initialize());

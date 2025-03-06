@@ -15,6 +15,10 @@ public class SettingsMenuScreen : ScreenBase
 
     #endregion
 
+    private void Start()
+    {
+        base.Start();
+    }
 
     public override void View()
     {

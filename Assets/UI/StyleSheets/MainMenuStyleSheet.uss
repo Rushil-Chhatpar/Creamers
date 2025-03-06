@@ -13,15 +13,15 @@
 }
 
 .play-button{
-	width: 300px;
-	height: 300px;
+	width: 250px;
+	height: 250px;
 	/* background-color: #ff8400; */
 	background-color: #21eb02;
 	background-image: resource('Play_Icon');
 	-unity-background-scale-mode: scale-to-fit;
 	-unity-background-image-tint-color: white;
 	border-color: black;
-	border-radius: 150px;
+	border-radius: 125px;
 	border-width: 20px;
 	transition: 0.1s all;
 	margin: 70px;
