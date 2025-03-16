@@ -10,8 +10,7 @@ public class GameOverScreen : ScreenBase
     private Button _restartButton;
 
     private readonly string _baseContainerClassName = "base-container";
-    private readonly string _labelContainerClassName = "label-container";
-    private readonly string _gameOverLabelClassName = "go-label";
+    private readonly string _gameOverVEClassName = "game-over";
     private readonly string _restartButtonClassName = "restart-button";
 
     #endregion
@@ -53,17 +52,13 @@ public class GameOverScreen : ScreenBase
 
         VisualElement baseContainer = Create<VisualElement>(_baseContainerClassName);
 
-        VisualElement labelContainer = Create<VisualElement>(_labelContainerClassName);
-
-        Label gameOverLabel = Create<Label>(_gameOverLabelClassName);
-        gameOverLabel.text = "Womp Womp Womp!!!";
+        VisualElement gameOverVE = Create<VisualElement>(_gameOverVEClassName);
 
         Button restartButton = Create<Button>(_restartButtonClassName);
         restartButton.clicked += RestartButtonClicked;
 
         _restartButton = restartButton;
-        labelContainer.Add(gameOverLabel);
-        baseContainer.Add(labelContainer);
+        baseContainer.Add(gameOverVE);
         baseContainer.Add(restartButton);
         root.Add(baseContainer);
     }

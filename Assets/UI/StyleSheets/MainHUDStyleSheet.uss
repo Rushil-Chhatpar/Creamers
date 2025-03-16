@@ -30,76 +30,76 @@
 
 .zoomout-button{
 	position: absolute;
-	width: 150px;
-	height: 150px;
+	width: 200px;
+	height: 200px;
 	left: 75px;
 	top: 150px;
-	background-color: #ff8400;
+	background-image: resource("ZoomOutIcon");
+	background-color: rgba(0,0,0,0);
 	border-color: white;
 	border-radius: 10px;
-	border-width: 10px;
+	border-width: 0px;
 	transition: 0.1s all;
 }
 
 .zoomout-button:active{
-	background-color: #b05b00;
-	border-radius: 40px;
-	scale: 1.15;
+	background-image: resource("ZoomOutIcon");
+	scale: 1.15; 
 }
 
 .zoomin-button{
 	position: absolute;
-	width: 150px;
-	height: 150px;
+	width: 200px;
+	height: 200px;
 	left: 75px;
 	top: 150px;
-	background-color: #65a605;
+	background-image: resource("ZoomInIcon");
+	background-color: rgba(0,0,0,0);
 	border-color: white;
 	border-radius: 10px;
-	border-width: 10px;
+	border-width: 0px;
 	transition: 0.1s all;
 }
 
 .zoomin-button:active{
-	background-color: #b05b00;
-	border-radius: 40px;
+	background-image: resource("ZoomInIcon");
 	scale: 1.15;
 }
 
 .pause-button{
 	position: absolute;
-	width: 150px;
-	height: 150px;
+	width: 180px;
+	height: 180px;
 	right: 75px;
 	top: 150px;
-	background-color: #ff8400;
+	background-color: rgba(0,0,0,0);
+	background-image: resource("PauseIcon");	
 	border-color: white;
 	border-radius: 10px;
-	border-width: 10px;
+	border-width: 0px;
 	transition: 0.1s all;
 }
 
 .pause-button:active{
-	background-color: #b05b00;
 	border-radius: 40px;
 	scale: 1.15;
 }
 
 .paused-button{
 	position: absolute;
-	width: 150px;
-	height: 150px;
+	width: 180px;
+	height: 180px;
 	right: 75px;
 	top: 150px;
-	background-color: #65a605;
+	background-color: rgba(0,0,0,0);
+	background-image: resource("PlaySmallIcon");
 	border-color: white;
-	border-radius: 10px;
-	border-width: 10px;
+	border-radius: 90px;
+	border-width: 0px;
 	transition: 0.1s all;
 }
 
 .paused-button:active{
-	background-color: #b05b00;
 	border-radius: 40px;
 	scale: 1.15;
 }

@@ -13,36 +13,26 @@
 	align-items: center;
 }
 
-.label-container{
-	bottom: 200px;
-	border-width: 10px;
-	border-color: white;
-	border-radius: 30px;
-	background-color: #b05b00;
-}
-
-.go-label{
-	font-size: 85px;
-	color: white;
-	padding: 15px;
+.game-over{
+	width: 924px;
+	height: 173px;
+	background-image: resource("GameOverText");
 }
 
 .restart-button{
-	width: 150px;
-	height: 150px;
-	background-color: #ff8400;
-	border-color: white;
-	border-radius: 10px;
+	width: 200px;
+	height: 200px;
+	background-color: rgba(0,0,0,0);
+	border-color: rgba(0,0,0,0);
+	border-radius: 0px;
 	border-width: 10px;
-	background-image: resource('Restart_Icon_1');
+	background-image: resource('RestartIcon');
     -unity-background-scale-mode: scale-to-fit;
-    -unity-background-image-tint-color: white;
 	padding: 10px;
 	transition: 0.1s all;
+	margin-top: 125px;
 }
 
 .restart-button:active{
-	-unity-background-image-tint-color: #b05b00;
-	border-radius: 40px;
 	scale: 1.15;
 }

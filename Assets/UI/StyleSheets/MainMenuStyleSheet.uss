@@ -13,20 +13,21 @@
 }
 
 .play-button{
-	width: 250px;
-	height: 250px;
+	width: 350px;
+	height: 350px;
+	position: absolute;
+	bottom: 500px;
 	/* background-color: #ff8400; */
 	background-color: #21eb02;
-	background-image: resource('Play_Icon');
+	background-image: resource('PlayBigIcon');
 	-unity-background-scale-mode: scale-to-fit;
 	-unity-background-image-tint-color: white;
 	border-color: black;
-	border-radius: 125px;
+	border-radius: 175px;
 	border-width: 20px;
 	transition: 0.1s all;
 	margin: 70px;
 	margin-bottom: 200px;
-
 	color: white;
 	font-size: 45;
 }
@@ -34,35 +35,32 @@
 .settings-button{
 	position: absolute;
 	right: 75px;
-	top: 75px;
+	top: 120px;
 	width: 180px;
 	height: 180px;
-	background-color: #ff8400;
-	background-image: resource('Settings_Icon');
-	-unity-background-scale-mode: scale-to-fit;
-	-unity-background-image-tint-color: black;
-	border-color: white;
+	background-color: rgba(0, 0, 0, 0);
+	background-image: resource('Settings_Icon2');
+	-unity-background-scale-mode: stretch-to-fill;
 	border-radius: 90px;
+	border-color: rgba(0, 0,0,0);
 	border-width: 10px;
 	transition: 0.1s all;
 	padding: 10px;
-	color: white;
 	font-size: 45;
 }
 
 .shop-button{
 	position: absolute;
 	left: 75px;
-	top: 75px;
+	top: 120px;
 	width: 180px;
 	height: 180px;
-	background-color: #fad785;
-	background-image: resource('Shopping_Icon');
-	-unity-background-scale-mode: scale-to-fit;
-	-unity-background-image-tint-color: #63def8;
+	background-color: rgba(0,0,0,0);
+	background-image: resource('ShopIcon');
+	-unity-background-scale-mode: stretch-to-fill;
 	border-color: black;
-	border-radius: 90px;
-	border-width: 10px;
+	border-radius: 10px;
+	border-width: 1px;
 	transition: 0.1s all;
 	padding: 10px;
 	color: white;
@@ -71,14 +69,14 @@
 
 .highscore-label{
 	position: absolute;
-	top: 75px;
+	top: 120px;
 	font-size: 45px;
 	color: white;
 }
 
 .highscore-number-label{
 	position: absolute;
-	top: 130px;
+	top: 175px;
 	font-size: 90px;
 	color: white;
 }
@@ -90,13 +88,18 @@
 }
 
 .settings-button:active{
-	background-color: #b05b00;
-	-unity-background-image-tint-color: white;
 	scale: 1.15;
 }
 
 .shop-button:active{
 	background-color: #b05b00;
-	-unity-background-image-tint-color: white;
 	scale: 1.15;
+}
+
+.creamers-logo{
+	position:absolute;
+	top: 520px;
+	background-image: resource("CreamersLogoV2");
+	width: 784px;
+	height: 166px;
 }
