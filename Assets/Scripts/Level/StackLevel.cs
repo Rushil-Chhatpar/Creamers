@@ -9,6 +9,8 @@ public class StackLevel : Level
     public readonly int InitialCamPriority = 10;
     private StackDropper _stackDropper;
     private CinemachineCamera _dynamicCam;
+    [SerializeField, UnityEngine.Range(10.0f, 100.0f)]
+    private float _explosionForceForward = 50.0f;
 
     [SerializeField]
     private List<Rigidbody> _staticCreamers;
@@ -26,7 +28,7 @@ public class StackLevel : Level
         _dynamicCam = dynamicCamera.GetComponent<CinemachineCamera>();
 
         _blendTime = FindFirstObjectByType<CinemachineBrain>().DefaultBlend.Time;
-        _explosionForce = new Vector3(0, 0, 50.0f);
+        _explosionForce = new Vector3(0, 0, _explosionForceForward);
     }
 
     public void InitialSequence()

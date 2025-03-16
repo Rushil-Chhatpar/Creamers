@@ -18,6 +18,7 @@ public class MainMenuScreen : ScreenBase
     
     private Label _highScoreLabel;
     private Label _highScoreNumberLabel;
+    private VisualElement _creamersLogo;
 
     private readonly string _playButtonClassName = "play-button";
     private readonly string _settingsButtonClassName = "settings-button";
@@ -25,6 +26,7 @@ public class MainMenuScreen : ScreenBase
     private readonly string _highScoreLabelClassName = "highscore-label";
     private readonly string _highScoreNumberLabelClassName = "highscore-number-label";
     private readonly string _shopButtonClassName = "shop-button";
+    private readonly string _creamersLogoClassName = "creamers-logo";
 
     #endregion
 
@@ -96,16 +98,20 @@ public class MainMenuScreen : ScreenBase
         Label highScoreNumberLabel = Create<Label>(_highScoreNumberLabelClassName);
         highScoreNumberLabel.text = ScoreManager.Instance.HighScore.ToString();
 
+        VisualElement creamersLogo = Create<VisualElement>(_creamersLogoClassName);
+
         _playButton = playButton;
         _settingsButton = settingsButton;
         _shopButton = shopButton;
         _highScoreLabel = highScoreLabel;
         _highScoreNumberLabel = highScoreNumberLabel;
+        _creamersLogo = creamersLogo;
         root.Add(highScoreLabel);
         root.Add(highScoreNumberLabel);
         root.Add(shopButton);
         root.Add(settingsButton);
         root.Add(playButton);
+        root.Add(creamersLogo);
     }
 
     private void PlayButtonClicked()
@@ -119,8 +125,8 @@ public class MainMenuScreen : ScreenBase
 
     private void SettingsButtonClicked()
     {
-        ScreenManager.Instance.ViewScreen<SettingsMenuScreen>();
-        ScreenManager.Instance.RemoveScreenFromView<MainMenuScreen>();
+        //ScreenManager.Instance.ViewScreen<SettingsMenuScreen>();
+        //ScreenManager.Instance.RemoveScreenFromView<MainMenuScreen>();
     }
 
     private void ShopButtonClicked()
