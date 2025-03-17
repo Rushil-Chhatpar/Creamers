@@ -13,10 +13,10 @@
 }
 
 .play-button{
-	width: 350px;
-	height: 350px;
+	width: 278px;
+	height: 272px;
 	position: absolute;
-	bottom: 500px;
+	bottom: 600px;
 	/* background-color: #ff8400; */
 	background-color: #21eb02;
 	background-image: resource('PlayBigIcon');
@@ -98,7 +98,7 @@
 
 .creamers-logo{
 	position:absolute;
-	top: 520px;
+	top: 380px;
 	background-image: resource("CreamersLogoV2");
 	width: 784px;
 	height: 166px;

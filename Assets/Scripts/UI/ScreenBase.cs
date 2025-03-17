@@ -13,7 +13,7 @@ public abstract class ScreenBase : MonoBehaviour
 
     protected void Start()
     {
-        ApplySafeArea();
+        //ApplySafeArea();
     }
 
     private void ApplySafeArea()

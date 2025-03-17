@@ -7,11 +7,11 @@ public class GameOverScreen : ScreenBase
 {
     #region Visual Elements
 
-    private Button _restartButton;
+    private Button _homeButton;
 
     private readonly string _baseContainerClassName = "base-container";
     private readonly string _gameOverVEClassName = "game-over";
-    private readonly string _restartButtonClassName = "restart-button";
+    private readonly string _homeButtonClassName = "home-button";
 
     #endregion
 
@@ -25,7 +25,7 @@ public class GameOverScreen : ScreenBase
         VisualElement root = _document.rootVisualElement;
         root.style.display = DisplayStyle.None;
 
-        _restartButton.clicked -= RestartButtonClicked;
+        _homeButton.clicked -= RestartButtonClicked;
     }
 
     public override void View()
@@ -54,12 +54,12 @@ public class GameOverScreen : ScreenBase
 
         VisualElement gameOverVE = Create<VisualElement>(_gameOverVEClassName);
 
-        Button restartButton = Create<Button>(_restartButtonClassName);
-        restartButton.clicked += RestartButtonClicked;
+        Button homeButton = Create<Button>(_homeButtonClassName);
+        homeButton.clicked += RestartButtonClicked;
 
-        _restartButton = restartButton;
+        _homeButton = homeButton;
         baseContainer.Add(gameOverVE);
-        baseContainer.Add(restartButton);
+        baseContainer.Add(homeButton);
         root.Add(baseContainer);
     }
 

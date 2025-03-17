@@ -11,6 +11,7 @@
 	flex-wrap: nowrap;
 	justify-content: space-around;
 	align-items: center;
+	margin-bottom: 200px;
 }
 
 .game-over{
@@ -19,7 +20,7 @@
 	background-image: resource("GameOverText");
 }
 
-.restart-button{
+.home-button{
 	width: 200px;
 	height: 200px;
 	background-color: rgba(0,0,0,0);
@@ -30,9 +31,9 @@
     -unity-background-scale-mode: scale-to-fit;
 	padding: 10px;
 	transition: 0.1s all;
-	margin-top: 125px;
+	margin-top: 115px;
 }
 
-.restart-button:active{
+.home-button:active{
 	scale: 1.15;
 }
