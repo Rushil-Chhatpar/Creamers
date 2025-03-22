@@ -3,12 +3,7 @@ guid: 6f9a0ef95a1cb5141a1c6e9718972c8f
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Mini_Milk_Pod
-    second: {fileID: 2100000, guid: d5e417cebe4913a42a82923d7dfc0644, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
