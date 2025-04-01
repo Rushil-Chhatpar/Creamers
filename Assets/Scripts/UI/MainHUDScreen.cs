@@ -30,11 +30,13 @@ public class MainHUDScreen : ScreenBase
 
     #endregion
 
-    private CinemachineCamera _dynamicCamera;
-    private CinemachineCamera _zoomOutCamera;
-    private int _camPriority = 0;
+    //private CinemachineCamera _dynamicCamera;
+    //private CinemachineCamera _zoomOutCamera;
+    //private int _camPriority = 0;
 
     private StackLevel _level;
+
+    //private CameraController _cameraController;
 
     public override void RemoveFromView()
     {
@@ -103,29 +105,29 @@ public class MainHUDScreen : ScreenBase
 
         //StartCoroutine(Initialize());
 
-        DynamicCamera dynamicCamera = FindFirstObjectByType<DynamicCamera>();
-        if (dynamicCamera)
-        {
-            _dynamicCamera = dynamicCamera.GetComponent<CinemachineCamera>();
-        }
-        ZoomOutCamera zoomOutCamera = FindFirstObjectByType<ZoomOutCamera>();
-        if (zoomOutCamera)
-        {
-            _zoomOutCamera = zoomOutCamera.GetComponent<CinemachineCamera>();
-        }
-
+        //DynamicCamera dynamicCamera = FindFirstObjectByType<DynamicCamera>();
+        //if (dynamicCamera)
+        //{
+        //    _dynamicCamera = dynamicCamera.GetComponent<CinemachineCamera>();
+        //}
+        //ZoomOutCamera zoomOutCamera = FindFirstObjectByType<ZoomOutCamera>();
+        //if (zoomOutCamera)
+        //{
+        //    _zoomOutCamera = zoomOutCamera.GetComponent<CinemachineCamera>();
+        //}
 
         _level = Game.Instance.CurrentLevel as StackLevel;
 
-        _camPriority = _level.InitialCamPriority + 10;
+        //_camPriority = _level.InitialCamPriority + 10;
 
         Game.GameOverEvent.AddListener(GameOver);
     }
 
     private void GameOver()
     {
-        _camPriority++;
-        _zoomOutCamera.Priority = _camPriority;
+        //_camPriority++;
+        //_zoomOutCamera.Priority = _camPriority;
+        _level.SetCamera(CameraController.CameraType.ZoomOut);
     }
 
     private void TapButtonClicked()
@@ -137,16 +139,18 @@ public class MainHUDScreen : ScreenBase
     private void ZoomOutButtonClicked()
     {
         _zoomOutActive = !_zoomOutActive;
-        _camPriority++;
+        //_camPriority++;
         if (_zoomOutActive)
         {
             _zoomOutButton.AddToClassList(_zoomInClassName);
-            _zoomOutCamera.Priority = _camPriority;
+            //_zoomOutCamera.Priority = _camPriority;
+            _level.SetCamera(CameraController.CameraType.ZoomOut);
         }
         else
         {
             _zoomOutButton.RemoveFromClassList(_zoomInClassName);
-            _dynamicCamera.Priority = _camPriority;
+            //_dynamicCamera.Priority = _camPriority;
+            _level.SetCamera(CameraController.CameraType.Dynamic);
         }
     }
 
