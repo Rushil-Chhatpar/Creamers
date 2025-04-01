@@ -12,6 +12,8 @@ public class StackLevel : Level
     [SerializeField, UnityEngine.Range(10.0f, 100.0f)]
     private float _explosionForceForward = 50.0f;
 
+    private CameraController _cameraController;
+
     [SerializeField]
     private List<Rigidbody> _staticCreamers;
 
@@ -21,6 +23,13 @@ public class StackLevel : Level
     private void Start()
     {
         base.Start();
+
+        _cameraController = FindFirstObjectByType<CameraController>();
+        if(!_cameraController)
+        {
+            _cameraController = gameObject.AddComponent<CameraController>();
+        }
+
         _stackDropper = _dropper.GetComponent<StackDropper>();
         _stackDropper.gameObject.SetActive(false);
         DynamicCamera dynamicCamera = FindFirstObjectByType<DynamicCamera>();
@@ -52,5 +61,10 @@ public class StackLevel : Level
         yield return new WaitForSeconds(time);
         _stackDropper.gameObject.SetActive(true);
         ScreenManager.Instance.ViewScreen<MainHUDScreen>();
+    }
+
+    public void SetCamera(CameraController.CameraType cameraType)
+    {
+        _cameraController.SetCamera(cameraType);
     }
 }
