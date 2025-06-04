@@ -156,17 +156,19 @@ public class MainHUDScreen : ScreenBase
 
     private void PauseButtonClicked()
     {
+        ScreenManager.Instance.RemoveScreenFromView<MainHUDScreen>();
+        ScreenManager.Instance.ViewScreen<PauseMenuScreen>();
         _isPaused = !_isPaused;
-        if(_isPaused)
-        {
-            _pauseButton.AddToClassList(_pausedButtonClassName);
-        }
-        else
-        {
-            _pauseButton.RemoveFromClassList(_pausedButtonClassName);
-        }
+        // if(_isPaused)
+        // {
+        //     _pauseButton.AddToClassList(_pausedButtonClassName);
+        // }
+        // else
+        // {
+        //     _pauseButton.RemoveFromClassList(_pausedButtonClassName);
+        // }
 
-        Time.timeScale = _isPaused ? 0 : 1;
+        Time.timeScale = 0; //_isPaused ? 0 : 1
     }
 
     private void UpdateScore(int score)

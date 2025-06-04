@@ -37,7 +37,7 @@ public class MainMenuScreen : ScreenBase
         if (Application.isPlaying)
             return;
 
-        StartCoroutine(Initialize());
+        // StartCoroutine(Initialize());
     }
 
     private void Start()
