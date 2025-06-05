@@ -52,12 +52,13 @@ public class StackDropper : Dropper
         _tapButtonPressed.AddListener(TapButtonPressedAction);
         _trigger = GetComponentInChildren<DropperHeightTrigger>();
 
-        Debug.Assert(_creamerPrefabs.Count > 0, "Cannot find gameobject: Creamer!!!");
+        // Debug.Assert(_creamerPrefabs.Count > 0, "Cannot find gameobject: Creamer!!!");
+        Debug.Assert(_creamerSet._creamerPrefabs.Count > 0, "Cannot find gameobject: Creamer!!!", this);
         SpawnAtBase();
         //ScoreManager.Instance.ScoreEvent.AddListener(ScoreEvent);
         //Game.GameOverEvent.AddListener(GameOver);
 
-        BoxCollider collider = _creamerPrefabs[0].GetComponent<BoxCollider>();
+        BoxCollider collider = _creamerSet._creamerPrefabs[0].GetComponent<BoxCollider>();
 
         if (collider != null)
         {
@@ -87,9 +88,9 @@ public class StackDropper : Dropper
 
     private void SpawnAtBase()
     {
-        GameObject creamer = Instantiate(_creamerPrefabs[_creamerIndex], transform.position, Quaternion.identity, transform);
+        GameObject creamer = Instantiate(_creamerSet._creamerPrefabs[_creamerIndex], transform.position, Quaternion.identity, transform);
         _currentCreamer = creamer;
-        _creamerIndex = (_creamerIndex + 1) % _creamerPrefabs.Count;
+        _creamerIndex = (_creamerIndex + 1) % _creamerSet._creamerPrefabs.Count;
     }
 
     void FixedUpdate()

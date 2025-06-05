@@ -8,7 +8,8 @@ using UnityEngine.Events;
 
 public abstract class Dropper : MonoBehaviour
 {
-    [SerializeField] protected List<GameObject> _creamerPrefabs;
+    [SerializeField] protected CreamerSet _creamerSet;
+    //[SerializeField] protected List<GameObject> _creamerPrefabs;
 
     protected int _creamerIndex = 0;
 

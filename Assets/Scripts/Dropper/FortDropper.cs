@@ -23,9 +23,9 @@ public class FortDropper : Dropper
 
     public void SpawnAtBase()
     {
-        GameObject creamer = Instantiate(_creamerPrefabs[_creamerIndex], transform.position, Quaternion.identity, transform);
+        GameObject creamer = Instantiate(_creamerSet._creamerPrefabs[_creamerIndex], transform.position, Quaternion.identity, transform);
         _currentCreamer = creamer;
-        _creamerIndex = (_creamerIndex + 1) % _creamerPrefabs.Count;
+        _creamerIndex = (_creamerIndex + 1) % _creamerSet._creamerPrefabs.Count;
     }
 
     public void ReleaseCreamer()
