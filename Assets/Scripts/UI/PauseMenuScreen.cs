@@ -22,7 +22,7 @@ public class PauseMenuScreen : ScreenBase
         if (Application.isPlaying)
             return;
 
-        StartCoroutine(Initialize());
+        // StartCoroutine(Initialize());
     }
 
     public override void RemoveFromView()
