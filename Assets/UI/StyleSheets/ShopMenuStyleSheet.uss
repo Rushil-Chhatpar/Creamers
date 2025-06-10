@@ -1,0 +1,37 @@
+:root{
+	flex-direction: column;
+    background-color: rgba(0,0,0,0.7);
+	align-items: center;
+}
+
+.base-container{
+	flex-direction: column;
+	align-content: center;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+	top: 0px;
+}
+
+.close-button{
+    position: absolute;
+	left: 75px;
+	top: 120px;
+	width: 180px;
+	height: 180px;
+    background-color: rgba(0,0,0,0);
+	background-image: resource('ShopIcon');
+    border-color: black;
+	border-radius: 10px;
+	border-width: 1px;
+	transition: 0.1s all;
+	padding: 10px;
+	color: white;
+	font-size: 45;
+}
+
+.close-button:active{
+    border-radius: 40px;
+    scale: 1.15;
+}

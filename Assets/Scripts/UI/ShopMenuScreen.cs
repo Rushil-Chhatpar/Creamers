@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -8,9 +9,16 @@ public class ShopMenuScreen : ScreenBase
     #region Visual Elements
 
     private Button _closeButton;
+    private Button _creamersTabButton;
+    private Button _themesTabButton;
 
-    private readonly string _closeButtonClassName = "close-button";
+    private VisualElement _tabsContainer;
+
     private readonly string _baseContainerClassName = "base-container";
+    private readonly string _closeButtonClassName = "close-button";
+    private readonly string _creamersTabButtonClassName = "creamersTab-button";
+    private readonly string _themesTabButtonClassName = "themesTab-button";
+    private readonly string _tabsContainerClassName = "tabs-container";
 
     #endregion
 
@@ -24,12 +32,15 @@ public class ShopMenuScreen : ScreenBase
 
     public override void RemoveFromView()
     {
-        throw new System.NotImplementedException();
+        VisualElement root = _document.rootVisualElement;
+        root.style.display = DisplayStyle.None;
+
+        _closeButton.clicked -= CloseButtonClicked;
     }
 
     public override void View()
     {
-        throw new System.NotImplementedException();
+        StartCoroutine(Initialize());
     }
 
     protected override IEnumerator Initialize()
@@ -41,8 +52,23 @@ public class ShopMenuScreen : ScreenBase
 
         root.styleSheets.Add(_styleSheet);
 
+        VisualElement baseContainer = Create<VisualElement>(_baseContainerClassName);
+
         Button closeButton = Create<Button>(_closeButtonClassName);
+        closeButton.clicked += CloseButtonClicked;
+
+        VisualElement tabsContainer = Create<VisualElement>(_tabsContainerClassName);
         
+
+        _closeButton = closeButton;
+        root.Add(baseContainer);
+        root.Add(closeButton);
+    }
+
+    private void CloseButtonClicked()
+    {
+        ScreenManager.Instance.RemoveScreenFromView<ShopMenuScreen>();
+        ScreenManager.Instance.ViewScreen<MainMenuScreen>();
     }
 
     void Start()

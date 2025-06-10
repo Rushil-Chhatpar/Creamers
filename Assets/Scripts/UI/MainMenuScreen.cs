@@ -37,7 +37,7 @@ public class MainMenuScreen : ScreenBase
         if (Application.isPlaying)
             return;
 
-        StartCoroutine(Initialize());
+        // StartCoroutine(Initialize());
     }
 
     private void Start()
@@ -131,6 +131,7 @@ public class MainMenuScreen : ScreenBase
 
     private void ShopButtonClicked()
     {
-        // TODO: Shop Functionality
+        ScreenManager.Instance.RemoveScreenFromView<MainMenuScreen>();
+        ScreenManager.Instance.ViewScreen<ShopMenuScreen>();
     }
 }
