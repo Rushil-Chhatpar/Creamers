@@ -6994,6 +6994,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 146883445908311481, guid: ecd8d648f9e1b69439b3f467a31cc512, type: 3}
+      propertyPath: _themesTabIcon
+      value: 
+      objectReference: {fileID: 2800000, guid: 9eaae734f4ddabf4abb1852baa9106d9, type: 3}
+    - target: {fileID: 146883445908311481, guid: ecd8d648f9e1b69439b3f467a31cc512, type: 3}
+      propertyPath: _creamersTabIcon
+      value: 
+      objectReference: {fileID: 2800000, guid: 37d38d144985b3244aab796f43073ff3, type: 3}
     - target: {fileID: 7620156439261586316, guid: ecd8d648f9e1b69439b3f467a31cc512, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.7478867

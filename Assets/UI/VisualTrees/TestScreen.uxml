@@ -1,0 +1,24 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/StyleSheets/TestScreenStyleSheet.uss?fileID=7433441132597879392&amp;guid=ef8587c120322bf4f86740725157be32&amp;type=3#TestScreenStyleSheet" />
+    <ui:VisualElement name="root" class="root" style="flex-grow: 1;">
+        <ui:VisualElement name="baseContainer" class="base-container" style="flex-grow: 1;">
+            <ui:VisualElement name="buttonBox" class="button-box" style="flex-grow: 1; flex-direction: column;">
+                <ui:VisualElement name="horizontalButtonBox" class="horizontal-button-box">
+                    <ui:Button text="Button" class="item-button" />
+                    <ui:Button text="Button" class="item-button" />
+                    <ui:Button text="Button" class="item-button" />
+                </ui:VisualElement>
+                <ui:VisualElement name="horizontalButtonBox" class="horizontal-button-box">
+                    <ui:Button text="Button" class="item-button" />
+                    <ui:Button text="Button" class="item-button" />
+                    <ui:Button text="Button" class="item-button" />
+                </ui:VisualElement>
+                <ui:VisualElement name="horizontalButtonBox" class="horizontal-button-box">
+                    <ui:Button text="Button" class="item-button" />
+                    <ui:Button text="Button" class="item-button" />
+                    <ui:Button text="Button" class="item-button" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

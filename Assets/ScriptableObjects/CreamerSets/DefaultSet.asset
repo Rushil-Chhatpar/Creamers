@@ -14,4 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _creamerPrefabs:
   - {fileID: 6513256371248637998, guid: fd59725f7d54d8047af8c628a009b3bb, type: 3}
-  _cost: 100
+  _cost: 0
+  _setIcon: {fileID: 0}
+  _uniqueID: 2

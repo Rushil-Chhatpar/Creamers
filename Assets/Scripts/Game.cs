@@ -33,6 +33,7 @@ public class Game : MonoBehaviour
 
     public static UnityEvent GameOverEvent = new UnityEvent();
     public Level CurrentLevel = null;
+    public CreamerSet _currentCreamerSet = null;
 
     private void Awake()
     {

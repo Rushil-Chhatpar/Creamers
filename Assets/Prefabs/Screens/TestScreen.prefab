@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &7760397228072391731
+--- !u!1 &8444010046533796930
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,38 +8,38 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7620156439261586316}
-  - component: {fileID: 512547755927710827}
-  - component: {fileID: 146883445908311481}
+  - component: {fileID: 1536973782814479247}
+  - component: {fileID: 3291812232375145515}
+  - component: {fileID: 7822685060476847656}
   m_Layer: 0
-  m_Name: ShopMenuScreen
+  m_Name: TestScreen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7620156439261586316
+--- !u!4 &1536973782814479247
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7760397228072391731}
+  m_GameObject: {fileID: 8444010046533796930}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.7478867, y: -0.3055403, z: 0.38880163}
+  m_LocalPosition: {x: -2.0830474, y: -3.999419, z: 11.10795}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &512547755927710827
+--- !u!114 &3291812232375145515
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7760397228072391731}
+  m_GameObject: {fileID: 8444010046533796930}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
@@ -52,19 +52,17 @@ MonoBehaviour:
   m_WorldSpaceSizeMode: 1
   m_WorldSpaceWidth: 1920
   m_WorldSpaceHeight: 1080
---- !u!114 &146883445908311481
+--- !u!114 &7822685060476847656
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7760397228072391731}
+  m_GameObject: {fileID: 8444010046533796930}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e52bc1755fdfc604db59f83fc3a7dba2, type: 3}
+  m_Script: {fileID: 11500000, guid: 364d131a214232642bf1a4ea15fc04b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _document: {fileID: 512547755927710827}
-  _styleSheet: {fileID: 7433441132597879392, guid: ad93ef0cbdfe2fa43b30f68173d0be6d, type: 3}
-  _creamersTabIcon: {fileID: 0}
-  _themesTabIcon: {fileID: 0}
+  _document: {fileID: 3291812232375145515}
+  _styleSheet: {fileID: 7433441132597879392, guid: ef8587c120322bf4f86740725157be32, type: 3}
