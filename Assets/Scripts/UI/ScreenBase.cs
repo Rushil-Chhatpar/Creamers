@@ -45,7 +45,7 @@ public abstract class ScreenBase : MonoBehaviour
         root.style.paddingBottom = bottom;
     }
 
-    public T Create<T>(params string[] classNames) where T : VisualElement, new()
+    public static T Create<T>(params string[] classNames) where T : VisualElement, new()
     {
         var element = new T();
         foreach (string className in classNames)

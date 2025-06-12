@@ -45,10 +45,6 @@
                         <engine:VisualElement name="render" class="item-button-render" style="flex-grow: 1;" />
                         <engine:Label text="100" name="label" class="item-button-label" />
                     </engine:Button>
-                    <engine:Button name="itemButton" class="item-button">
-                        <engine:VisualElement name="render" class="item-button-render" style="flex-grow: 1;" />
-                        <engine:Label text="100" name="label" class="item-button-label" />
-                    </engine:Button>
                 </engine:VisualElement>
             </engine:VisualElement>
         </engine:VisualElement>
