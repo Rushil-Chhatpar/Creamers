@@ -22,20 +22,20 @@ public class PauseMenuScreen : ScreenBase
         if (Application.isPlaying)
             return;
 
-        StartCoroutine(Initialize());
+        // StartCoroutine(Initialize());
     }
 
     public override void RemoveFromView()
     {
-        VisualElement root = _document.rootVisualElement;
-        root.style.display = DisplayStyle.None;
+        base.RemoveFromView();
 
         _pauseButton.clicked -= PauseButtonClicked;
     }
 
     public override void View()
     {
-        StartCoroutine(Initialize());
+        base.View();
+        _pauseButton.clicked += PauseButtonClicked;
     }
 
     protected override IEnumerator Initialize()
@@ -43,8 +43,7 @@ public class PauseMenuScreen : ScreenBase
         yield return null;
         VisualElement root = _document.rootVisualElement;
         root.Clear();
-        root.style.display = DisplayStyle.Flex;
-
+        root.style.display = _renderOnStart ? DisplayStyle.Flex : DisplayStyle.None;
 
         root.styleSheets.Add(_styleSheet);
 
@@ -89,7 +88,7 @@ public class PauseMenuScreen : ScreenBase
     private void Start()
     {
         base.Start();
-        //StartCoroutine(Initialize());
+        StartCoroutine(Initialize());
     }
 
 }

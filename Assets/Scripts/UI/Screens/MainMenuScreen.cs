@@ -50,7 +50,11 @@ public class MainMenuScreen : ScreenBase
 
     public override void View()
     {
-        StartCoroutine(Initialize());
+        base.View();
+
+        _playButton.clicked += PlayButtonClicked;
+        _settingsButton.clicked += SettingsButtonClicked;
+        _shopButton.clicked += ShopButtonClicked;
         if (_cinemachineMainCamera && _cinemachineSettingsCamera)
         {
             _cinemachineMainCamera.enabled = true;
@@ -60,8 +64,7 @@ public class MainMenuScreen : ScreenBase
 
     public override void RemoveFromView()
     {
-        VisualElement root = _document.rootVisualElement;
-        root.style.display = DisplayStyle.None;
+        base.RemoveFromView();
 
         _playButton.clicked -= PlayButtonClicked;
         _settingsButton.clicked -= SettingsButtonClicked;
@@ -79,7 +82,7 @@ public class MainMenuScreen : ScreenBase
         yield return null;
         VisualElement root = _document.rootVisualElement;
         root.Clear();
-        root.style.display = DisplayStyle.Flex;
+        root.style.display = _renderOnStart ? DisplayStyle.Flex : DisplayStyle.None;
 
         root.styleSheets.Add(_styleSheet);
 
@@ -131,6 +134,7 @@ public class MainMenuScreen : ScreenBase
 
     private void ShopButtonClicked()
     {
-        // TODO: Shop Functionality
+        ScreenManager.Instance.RemoveScreenFromView<MainMenuScreen>();
+        ScreenManager.Instance.ViewScreen<ShopMenuScreen>();
     }
 }

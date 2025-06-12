@@ -1,0 +1,137 @@
+.root {
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.7);
+    align-items: stretch;
+    justify-content: flex-start;
+    align-content: stretch;
+    position: relative;
+    flex-shrink: 1;
+    flex-grow: 1;
+    align-self: stretch;
+}
+
+.base-container {
+    flex-direction: column;
+    align-content: center;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    justify-content: center;
+    align-content: center;
+    position: relative;
+    margin-top: 300px;
+}
+
+.close-button {
+    position: absolute;
+    left: 75px;
+    top: 120px;
+    width: 180px;
+    height: 180px;
+    background-color: rgba(0, 0, 0, 0);
+    background-image: resource('ShopIcon');
+    border-color: black;
+    border-radius: 10px;
+    border-width: 1px;
+    transition: 0.1s all;
+    padding: 10px;
+    color: white;
+    font-size: 45;
+}
+
+.close-button:active {
+    border-radius: 40px;
+    scale: 1.15;
+}
+
+.horizontal-button-box {
+    flex-direction: row;
+    align-content: center;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    align-items: stretch;
+    flex-grow: 0;
+    flex-shrink: 1;
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+.item-button {
+    width: 250px;
+    height: 250px;
+    background-color: rgba(0, 0, 0, 0);
+    border-color: white;
+    border-radius: 10px;
+    border-width: 10px;
+    transition: 0.1s all;
+    padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    margin-top: 40px;
+    margin-right: 40px;
+    margin-bottom: 40px;
+    margin-left: 40px;
+    transition: 0.1s all;
+}
+
+.item-button:active {
+    border-radius: 40px;
+    scale: 1.15;
+}
+
+.tabs-container {
+    flex-direction: row;
+    align-content: stretch;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    align-items: center;
+    flex-grow: 0;
+    flex-shrink: 1;
+    align-self: stretch;
+}
+
+.tabs-button {
+    width: 400px;
+    height: 180px;
+    background-color: rgb(255, 255, 255);
+    border-color: white;
+    border-radius: 10px;
+    border-width: 0;
+    transition: 0.1s all;
+    padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    margin-right: 0;
+    margin-left: 0;
+}
+
+.button-box {
+    flex-direction: column;
+    align-content: center;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    justify-content: flex-start;
+    align-content: center;
+    position: relative;
+    top: 0;
+    align-self: stretch;
+}
+
+.item-button-render {
+    -unity-slice-left: 10;
+    -unity-slice-right: 10;
+}
+
+.item-button-label {
+    -unity-font-definition: resource('FlatSkin/Font/Roboto-Regular');
+    color: rgb(255, 0, 0);
+    font-size: 30px;
+    -unity-text-align: middle-center;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}

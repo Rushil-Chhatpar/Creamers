@@ -1,0 +1,52 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/StyleSheets/ShopMenuStyleSheet.uss?fileID=7433441132597879392&amp;guid=ad93ef0cbdfe2fa43b30f68173d0be6d&amp;type=3#ShopMenuStyleSheet" />
+    <engine:VisualElement name="root" class="root">
+        <engine:Button class="close-button" />
+        <engine:VisualElement name="baseContainer" class="base-container">
+            <engine:GroupBox name="tabsContainer" class="tabs-container">
+                <engine:Button name="creamersTab" class="tabs-button" />
+                <engine:Button name="themesTab" class="tabs-button" />
+            </engine:GroupBox>
+            <engine:VisualElement name="buttonsBox" class="button-box">
+                <engine:VisualElement name="horizontalButtonsBox" class="horizontal-button-box">
+                    <engine:Button name="itemButton" class="item-button">
+                        <engine:VisualElement name="render" class="item-button-render" style="flex-grow: 1;" />
+                        <engine:Label text="100" name="label" class="item-button-label" />
+                    </engine:Button>
+                    <engine:Button name="itemButton" class="item-button">
+                        <engine:VisualElement name="render" class="item-button-render" style="flex-grow: 1;" />
+                        <engine:Label text="100" name="label" class="item-button-label" />
+                    </engine:Button>
+                    <engine:Button name="itemButton" class="item-button">
+                        <engine:VisualElement name="render" class="item-button-render" style="flex-grow: 1;" />
+                        <engine:Label text="100" name="label" class="item-button-label" />
+                    </engine:Button>
+                </engine:VisualElement>
+                <engine:VisualElement name="horizontalButtonsBox" class="horizontal-button-box">
+                    <engine:Button name="itemButton" class="item-button">
+                        <engine:VisualElement name="render" class="item-button-render" style="flex-grow: 1;" />
+                        <engine:Label text="100" name="label" class="item-button-label" />
+                    </engine:Button>
+                    <engine:Button name="itemButton" class="item-button">
+                        <engine:VisualElement name="render" class="item-button-render" style="flex-grow: 1;" />
+                        <engine:Label text="100" name="label" class="item-button-label" />
+                    </engine:Button>
+                    <engine:Button name="itemButton" class="item-button">
+                        <engine:VisualElement name="render" class="item-button-render" style="flex-grow: 1;" />
+                        <engine:Label text="100" name="label" class="item-button-label" />
+                    </engine:Button>
+                </engine:VisualElement>
+                <engine:VisualElement name="horizontalButtonsBox" class="horizontal-button-box">
+                    <engine:Button name="itemButton" class="item-button">
+                        <engine:VisualElement name="render" class="item-button-render" style="flex-grow: 1;" />
+                        <engine:Label text="100" name="label" class="item-button-label" />
+                    </engine:Button>
+                    <engine:Button name="itemButton" class="item-button">
+                        <engine:VisualElement name="render" class="item-button-render" style="flex-grow: 1;" />
+                        <engine:Label text="100" name="label" class="item-button-label" />
+                    </engine:Button>
+                </engine:VisualElement>
+            </engine:VisualElement>
+        </engine:VisualElement>
+    </engine:VisualElement>
+</engine:UXML>

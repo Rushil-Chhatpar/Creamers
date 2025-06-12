@@ -24,6 +24,7 @@ public class GameModeSelectionScreen : ScreenBase
     private void Start()
     {
         base.Start();
+        StartCoroutine(Initialize());
     }
 
     private void OnValidate()
@@ -36,8 +37,7 @@ public class GameModeSelectionScreen : ScreenBase
 
     public override void RemoveFromView()
     {
-        VisualElement root = _document.rootVisualElement;
-        root.style.display = DisplayStyle.None;
+        base.RemoveFromView();
 
         _stackModeButton.clicked -= StackModeButtonClicked;
         _fortModeButton.clicked -= FortModeButtonClicked;
@@ -45,7 +45,10 @@ public class GameModeSelectionScreen : ScreenBase
 
     public override void View()
     {
-        StartCoroutine(Initialize());
+        base.View();
+
+        _stackModeButton.clicked += StackModeButtonClicked;
+        _fortModeButton.clicked += FortModeButtonClicked;
     }
 
     protected override IEnumerator Initialize()
@@ -53,7 +56,7 @@ public class GameModeSelectionScreen : ScreenBase
         yield return null;
         VisualElement root = _document.rootVisualElement;
         root.Clear();
-        root.style.display = DisplayStyle.Flex;
+        root.style.display = _renderOnStart ? DisplayStyle.Flex : DisplayStyle.None;
 
         root.styleSheets.Add(_styleSheet);
 

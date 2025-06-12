@@ -18,17 +18,18 @@ public class SettingsMenuScreen : ScreenBase
     private void Start()
     {
         base.Start();
+        StartCoroutine(Initialize());
     }
 
     public override void View()
     {
-        StartCoroutine(Initialize());
-    }
+        base.View();
+        _backButton.clicked += BackButtonClicked;
+}
 
     public override void RemoveFromView()
     {
-        VisualElement root = _document.rootVisualElement;
-        root.style.display = DisplayStyle.None;
+        base.RemoveFromView();
 
         _backButton.clicked -= BackButtonClicked;
     }
@@ -46,7 +47,7 @@ public class SettingsMenuScreen : ScreenBase
         yield return null;
         VisualElement root = _document.rootVisualElement;
         root.Clear();
-        root.style.display = DisplayStyle.Flex;
+        root.style.display = _renderOnStart ? DisplayStyle.Flex : DisplayStyle.None;
 
         root.styleSheets.Add(_styleSheet);
 

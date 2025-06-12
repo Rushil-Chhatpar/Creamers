@@ -15,8 +15,9 @@
 .play-button{
 	width: 278px;
 	height: 272px;
-	position: absolute;
-	bottom: 600px;
+	position: relative;
+	align-self: center;
+	justify-self: center;
 	/* background-color: #ff8400; */
 	background-color: #21eb02;
 	background-image: resource('PlayBigIcon');
@@ -27,7 +28,7 @@
 	border-width: 20px;
 	transition: 0.1s all;
 	margin: 70px;
-	margin-bottom: 200px;
+	margin-top: 0px;
 	color: white;
 	font-size: 45;
 }

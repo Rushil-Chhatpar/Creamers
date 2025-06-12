@@ -40,15 +40,16 @@ public class MainHUDScreen : ScreenBase
 
     public override void RemoveFromView()
     {
-        VisualElement root = _document.rootVisualElement;
-        root.style.display = DisplayStyle.None;
+        base.RemoveFromView();
 
         _tapButton.clicked -= TapButtonClicked;
     }
 
     public override void View()
     {
-        StartCoroutine(Initialize());
+        base.View();
+
+        _tapButton.clicked += TapButtonClicked;
     }
 
     protected override IEnumerator Initialize()
@@ -56,7 +57,7 @@ public class MainHUDScreen : ScreenBase
         yield return null;
         VisualElement root = _document.rootVisualElement;
         root.Clear();
-        root.style.display = DisplayStyle.Flex;
+        root.style.display = _renderOnStart ? DisplayStyle.Flex : DisplayStyle.None;
 
 
         root.styleSheets.Add(_styleSheet);
@@ -103,7 +104,7 @@ public class MainHUDScreen : ScreenBase
         //Debug.Assert(_dropper, "No Dropper found in the Scene!!!", this);
         ScoreManager.Instance.UpdateScoreEvent.AddListener(UpdateScore);
 
-        //StartCoroutine(Initialize());
+        StartCoroutine(Initialize());
 
         //DynamicCamera dynamicCamera = FindFirstObjectByType<DynamicCamera>();
         //if (dynamicCamera)

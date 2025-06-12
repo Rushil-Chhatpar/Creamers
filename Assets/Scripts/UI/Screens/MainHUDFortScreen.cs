@@ -50,8 +50,7 @@ public class MainHUDFortScreen : ScreenBase
 
     public override void RemoveFromView()
     {
-        VisualElement root = _document.rootVisualElement;
-        root.style.display = DisplayStyle.None;
+        base.RemoveFromView();
 
         //_tapButton.clicked -= TapButtonClicked;
         _tapButton.UnregisterCallback<PointerDownEvent>(PointerDownEventCallback);
@@ -61,7 +60,7 @@ public class MainHUDFortScreen : ScreenBase
 
     public override void View()
     {
-        StartCoroutine(Initialize());
+        base.View();
     }
 
     protected override IEnumerator Initialize()
@@ -69,7 +68,7 @@ public class MainHUDFortScreen : ScreenBase
         yield return null;
         VisualElement root = _document.rootVisualElement;
         root.Clear();
-        root.style.display = DisplayStyle.Flex;
+        root.style.display = _renderOnStart ? DisplayStyle.Flex : DisplayStyle.None;
 
 
         root.styleSheets.Add(_styleSheet);
