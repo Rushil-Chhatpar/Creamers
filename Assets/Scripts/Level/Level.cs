@@ -17,4 +17,9 @@ public class Level : MonoBehaviour
     {
         _gameMode.CreamerLandCallback();
     }
+
+    public void SetCreamerSet(int creamerSetID)
+    {
+        _dropper.GetComponent<Dropper>().SetCreamerSet(creamerSetID);
+    }
 }

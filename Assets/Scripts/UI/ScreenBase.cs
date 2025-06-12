@@ -6,9 +6,18 @@ public abstract class ScreenBase : MonoBehaviour
 {
     [SerializeField] protected UIDocument _document;
     [SerializeField] protected StyleSheet _styleSheet;
+    [SerializeField] protected bool _renderOnStart = false;
 
-    public abstract void View();
-    public abstract void RemoveFromView();
+    public virtual void View()
+    {
+        VisualElement root = _document.rootVisualElement;
+        root.style.display = DisplayStyle.Flex;
+    }
+    public virtual void RemoveFromView()
+    {
+        VisualElement root = _document.rootVisualElement;
+        root.style.display = DisplayStyle.None;
+    }
     protected abstract IEnumerator Initialize();
 
     protected void Start()

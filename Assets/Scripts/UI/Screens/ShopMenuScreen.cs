@@ -40,9 +40,8 @@ public class ShopMenuScreen : ScreenBase
 
     public override void RemoveFromView()
     {
-        VisualElement root = _document.rootVisualElement;
-        root.style.display = DisplayStyle.None;
-
+        base.RemoveFromView();
+        
         _closeButton.clicked -= CloseButtonClicked;
         _creamersTabButton.clicked -= CreamersTabButtonClicked;
         _themesTabButton.clicked -= ThemesTabButtonClicked;
@@ -50,7 +49,11 @@ public class ShopMenuScreen : ScreenBase
 
     public override void View()
     {
-        StartCoroutine(Initialize());
+        base.View();
+
+        _closeButton.clicked += CloseButtonClicked;
+        _creamersTabButton.clicked += CreamersTabButtonClicked;
+        _themesTabButton.clicked += ThemesTabButtonClicked;
     }
 
     protected override IEnumerator Initialize()
@@ -58,7 +61,7 @@ public class ShopMenuScreen : ScreenBase
         yield return null;
         VisualElement root = _document.rootVisualElement;
         root.Clear();
-        root.style.display = DisplayStyle.Flex;
+        root.style.display = _renderOnStart ? DisplayStyle.Flex : DisplayStyle.None;
 
         root.styleSheets.Add(_styleSheet);
 
@@ -127,5 +130,6 @@ public class ShopMenuScreen : ScreenBase
     void Start()
     {
         base.Start();
+        StartCoroutine(Initialize());
     }
 }

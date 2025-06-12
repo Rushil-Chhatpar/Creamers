@@ -25,13 +25,12 @@ public class TestScreen : ScreenBase
 
     public override void RemoveFromView()
     {
-        VisualElement root = _document.rootVisualElement;
-        root.style.display = DisplayStyle.None;
+        base.RemoveFromView();
     }
 
     public override void View()
     {
-        StartCoroutine(Initialize());
+        base.View();
     }
 
     protected override IEnumerator Initialize()
@@ -40,7 +39,7 @@ public class TestScreen : ScreenBase
 
         VisualElement root = _document.rootVisualElement;
         root.Clear();
-        root.style.display = DisplayStyle.Flex;
+        root.style.display = _renderOnStart ? DisplayStyle.Flex : DisplayStyle.None;
 
         root.styleSheets.Add(_styleSheet);
 
