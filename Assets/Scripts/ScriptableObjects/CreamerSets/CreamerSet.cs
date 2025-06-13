@@ -1,9 +1,9 @@
 using System.Collections.Generic;
 using UnityEngine;
+
+#if UNITY_EDITOR
 using UnityEditor;
-using System.Linq;
-using UnityEngine.UIElements;
-using System.Xml;
+#endif
 
 [CreateAssetMenu(menuName = "CreamerSet")]
 public class CreamerSet : ScriptableObject
@@ -29,6 +29,8 @@ public class CreamerSet : ScriptableObject
     }
 }
 
+
+#if UNITY_EDITOR
 [InitializeOnLoad]
 public class CreamerSetIDAssigner
 {
@@ -45,11 +47,11 @@ public class CreamerSetIDAssigner
         {
             AssignIDsToSets();
         }
-        static string OnWillSaveAssets(string[] paths)
-        {
-            AssignIDsToSets();
-            return null;
-        }
+        // static string OnWillSaveAssets(string[] paths)
+        // {
+        //     AssignIDsToSets();
+        //     return null;
+        // }
     }
 
     private static void AssignIDsToSets()
@@ -73,3 +75,5 @@ public class CreamerSetIDAssigner
         AssetDatabase.SaveAssets();
     }
 }
+
+#endif

@@ -6924,6 +6924,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8893506113278844144, guid: e66b5df57dc312a4f991a7adcd076fbc, type: 3}
+      propertyPath: CreamerSets.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8893506113278844144, guid: e66b5df57dc312a4f991a7adcd076fbc, type: 3}
+      propertyPath: 'CreamerSets.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 6d0f54c1fe0b3334d95ecc8c3115b5ec, type: 2}
+    - target: {fileID: 8893506113278844144, guid: e66b5df57dc312a4f991a7adcd076fbc, type: 3}
+      propertyPath: 'CreamerSets.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: b6e191b8a9759d44c98ba304d4e72a5e, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
