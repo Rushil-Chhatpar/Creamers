@@ -26,11 +26,9 @@ public abstract class Dropper : MonoBehaviour, IDataPersistence
     public void LoadData(GameData data)
     {
         int id = data.CreamerSetID;
-        string[] guids = AssetDatabase.FindAssets("t:CreamerSet");
-        foreach (string guid in guids)
+
+        foreach (CreamerSet set in Game.Instance.CreamerSets)
         {
-            string path = AssetDatabase.GUIDToAssetPath(guid);
-            CreamerSet set = AssetDatabase.LoadAssetAtPath<CreamerSet>(path);
             if (set.UniqueId == id)
             {
                 _creamerSet = set;
@@ -46,11 +44,8 @@ public abstract class Dropper : MonoBehaviour, IDataPersistence
 
     public void SetCreamerSet(int cremaerSetID)
     {
-        string[] guids = AssetDatabase.FindAssets("t:CreamerSet");
-        foreach (string guid in guids)
+        foreach (CreamerSet set in Game.Instance.CreamerSets)
         {
-            string path = AssetDatabase.GUIDToAssetPath(guid);
-            CreamerSet set = AssetDatabase.LoadAssetAtPath<CreamerSet>(path);
             if (set.UniqueId == cremaerSetID)
             {
                 _creamerSet = set;

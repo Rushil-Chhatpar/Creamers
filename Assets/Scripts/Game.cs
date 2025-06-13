@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
@@ -34,6 +35,8 @@ public class Game : MonoBehaviour
     public static UnityEvent GameOverEvent = new UnityEvent();
     public Level CurrentLevel = null;
     public CreamerSet _currentCreamerSet = null;
+
+    [SerializeField] public List<CreamerSet> CreamerSets = new List<CreamerSet>();
 
     private void Awake()
     {

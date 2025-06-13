@@ -102,12 +102,9 @@ public class ShopMenuScreen : ScreenBase
         VisualElement horizontalBox = Create<VisualElement>(_horizontalButtonBoxClassName);
         buttonBox.Add(horizontalBox);
 
-        string[] guids = AssetDatabase.FindAssets("t:CreamerSet");
         int counter = 0;
-        foreach (string guid in guids)
+        foreach (CreamerSet set in Game.Instance.CreamerSets)
         {
-            string path = AssetDatabase.GUIDToAssetPath(guid);
-            CreamerSet set = AssetDatabase.LoadAssetAtPath<CreamerSet>(path);
             if (counter >= 3)
             {
                 horizontalBox = Create<VisualElement>(_horizontalButtonBoxClassName);
