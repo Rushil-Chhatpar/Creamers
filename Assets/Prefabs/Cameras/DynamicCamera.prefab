@@ -100,7 +100,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _offset: {x: 0, y: 1, z: 0}
   _smoothingSpeed: 1
-  _maxDistFromDropper: 15
+  _maxDistFromDropper: 20
 --- !u!114 &7953223039414077722
 MonoBehaviour:
   m_ObjectHideFlags: 0
