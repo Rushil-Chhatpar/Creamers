@@ -29,7 +29,7 @@ public class Game : MonoBehaviour
 
     #endregion
 
-    private readonly string _mainGameSceneName = "SampleScene";
+    private readonly string _mainGameSceneName = "StackLevel";
     private readonly string _mainMenuSceneName = "MainMenuScene";
 
     public static UnityEvent GameOverEvent = new UnityEvent();

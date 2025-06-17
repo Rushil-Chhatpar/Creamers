@@ -89,6 +89,10 @@ public class StackDropper : Dropper
     private void SpawnAtBase()
     {
         GameObject creamer = Instantiate(_creamerSet._creamerPrefabs[_creamerIndex], transform.position, Quaternion.identity, transform);
+
+        // TODO: Fix the model default angle
+        creamer.transform.rotation = Quaternion.Euler(-90,0,0);
+        // __________________________________________________________________
         _currentCreamer = creamer;
         _creamerIndex = (_creamerIndex + 1) % _creamerSet._creamerPrefabs.Count;
     }

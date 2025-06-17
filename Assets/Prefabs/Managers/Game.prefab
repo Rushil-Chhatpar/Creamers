@@ -44,3 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78db7555339c22a45a74d53dd6cf343c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CurrentLevel: {fileID: 0}
+  _currentCreamerSet: {fileID: 0}
+  CreamerSets:
+  - {fileID: 11400000, guid: 1e076a81d4d25704b83be6628483fc67, type: 2}

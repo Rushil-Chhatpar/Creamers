@@ -607,29 +607,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2470260421438265840, guid: 3aedc88a27ab00d49b74281ab45de694, type: 3}
-      propertyPath: m_Size.x
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 2470260421438265840, guid: 3aedc88a27ab00d49b74281ab45de694, type: 3}
-      propertyPath: m_Size.z
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 3665707543607534425, guid: 3aedc88a27ab00d49b74281ab45de694, type: 3}
       propertyPath: m_Name
       value: GameOverTrigger
-      objectReference: {fileID: 0}
-    - target: {fileID: 5244207407025682569, guid: 3aedc88a27ab00d49b74281ab45de694, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5244207407025682569, guid: 3aedc88a27ab00d49b74281ab45de694, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5244207407025682569, guid: 3aedc88a27ab00d49b74281ab45de694, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5244207407025682569, guid: 3aedc88a27ab00d49b74281ab45de694, type: 3}
       propertyPath: m_LocalPosition.x
@@ -670,10 +650,6 @@ PrefabInstance:
     - target: {fileID: 5244207407025682569, guid: 3aedc88a27ab00d49b74281ab45de694, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5244207407025682569, guid: 3aedc88a27ab00d49b74281ab45de694, type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6924,18 +6900,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8893506113278844144, guid: e66b5df57dc312a4f991a7adcd076fbc, type: 3}
-      propertyPath: CreamerSets.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8893506113278844144, guid: e66b5df57dc312a4f991a7adcd076fbc, type: 3}
-      propertyPath: 'CreamerSets.Array.data[0]'
-      value: 
-      objectReference: {fileID: 11400000, guid: 6d0f54c1fe0b3334d95ecc8c3115b5ec, type: 2}
-    - target: {fileID: 8893506113278844144, guid: e66b5df57dc312a4f991a7adcd076fbc, type: 3}
-      propertyPath: 'CreamerSets.Array.data[1]'
-      value: 
-      objectReference: {fileID: 11400000, guid: b6e191b8a9759d44c98ba304d4e72a5e, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7006,14 +6970,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 146883445908311481, guid: ecd8d648f9e1b69439b3f467a31cc512, type: 3}
-      propertyPath: _themesTabIcon
-      value: 
-      objectReference: {fileID: 2800000, guid: 9eaae734f4ddabf4abb1852baa9106d9, type: 3}
-    - target: {fileID: 146883445908311481, guid: ecd8d648f9e1b69439b3f467a31cc512, type: 3}
-      propertyPath: _creamersTabIcon
-      value: 
-      objectReference: {fileID: 2800000, guid: 37d38d144985b3244aab796f43073ff3, type: 3}
     - target: {fileID: 7620156439261586316, guid: ecd8d648f9e1b69439b3f467a31cc512, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.7478867
@@ -7128,10 +7084,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2970030873548940842, guid: a4220aba25882e1428d99db15c90d515, type: 3}
-      propertyPath: _maxDistFromDropper
-      value: 20
-      objectReference: {fileID: 0}
     - target: {fileID: 4539243621571961777, guid: a4220aba25882e1428d99db15c90d515, type: 3}
       propertyPath: m_Name
       value: DynamicCamera
@@ -7307,58 +7259,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1524081042721767281, guid: d81b22124cfa79e4483992d59da47d96, type: 3}
-      propertyPath: m_ClearFlags
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1524081042721767281, guid: d81b22124cfa79e4483992d59da47d96, type: 3}
-      propertyPath: orthographic
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1524081042721767281, guid: d81b22124cfa79e4483992d59da47d96, type: 3}
-      propertyPath: field of view
-      value: 75
-      objectReference: {fileID: 0}
-    - target: {fileID: 1524081042721767281, guid: d81b22124cfa79e4483992d59da47d96, type: 3}
-      propertyPath: m_FocalLength
-      value: 13.858139
-      objectReference: {fileID: 0}
-    - target: {fileID: 1524081042721767281, guid: d81b22124cfa79e4483992d59da47d96, type: 3}
-      propertyPath: far clip plane
-      value: 5000
-      objectReference: {fileID: 0}
-    - target: {fileID: 1524081042721767281, guid: d81b22124cfa79e4483992d59da47d96, type: 3}
-      propertyPath: m_SensorSize.x
-      value: 21.946
-      objectReference: {fileID: 0}
-    - target: {fileID: 1524081042721767281, guid: d81b22124cfa79e4483992d59da47d96, type: 3}
-      propertyPath: m_SensorSize.y
-      value: 16.002
-      objectReference: {fileID: 0}
-    - target: {fileID: 1524081042721767281, guid: d81b22124cfa79e4483992d59da47d96, type: 3}
-      propertyPath: m_BackGroundColor.b
-      value: 0.4037736
-      objectReference: {fileID: 0}
-    - target: {fileID: 1524081042721767281, guid: d81b22124cfa79e4483992d59da47d96, type: 3}
-      propertyPath: m_BackGroundColor.g
-      value: 0.34813562
-      objectReference: {fileID: 0}
-    - target: {fileID: 1524081042721767281, guid: d81b22124cfa79e4483992d59da47d96, type: 3}
-      propertyPath: m_BackGroundColor.r
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1524081042721767281, guid: d81b22124cfa79e4483992d59da47d96, type: 3}
-      propertyPath: m_projectionMatrixMode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3811572982087285602, guid: d81b22124cfa79e4483992d59da47d96, type: 3}
-      propertyPath: m_Antialiasing
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3811572982087285602, guid: d81b22124cfa79e4483992d59da47d96, type: 3}
-      propertyPath: m_RenderPostProcessing
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5344313349286824152, guid: d81b22124cfa79e4483992d59da47d96, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -7402,10 +7302,6 @@ PrefabInstance:
     - target: {fileID: 5529051259949248472, guid: d81b22124cfa79e4483992d59da47d96, type: 3}
       propertyPath: m_Name
       value: MainCamera-CinemachineBrain
-      objectReference: {fileID: 0}
-    - target: {fileID: 7004143427533533686, guid: d81b22124cfa79e4483992d59da47d96, type: 3}
-      propertyPath: LensModeOverride.Enabled
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee486d1e84249694ba6106ff89b8e657, type: 3}
   m_Name: StackGameMode
   m_EditorClassIdentifier: 
-  _dropperPrefab: {fileID: 8697021075054350176, guid: 43da844c524394648a642b50c488e571, type: 3}
+  _dropperPrefab: {fileID: 8697021075054350176, guid: 5296e5ebdaa6df640b9329b445244da6, type: 3}
