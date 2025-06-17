@@ -11,6 +11,7 @@ public class Level : MonoBehaviour
     public void Start()
     {
         _dropper = _gameMode.DropperInitialize(_dropperTransform);
+        _dropper.transform.localPosition = Vector3.zero;
     }
 
     public void CreamerLandEventCallback()

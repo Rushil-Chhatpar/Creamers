@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 5771579531113245134}
   - component: {fileID: 7539405279888746539}
   - component: {fileID: 8883118432630543306}
-  - component: {fileID: 2970030873548940842}
   - component: {fileID: 7953223039414077722}
+  - component: {fileID: 2970030873548940842}
   m_Layer: 0
   m_Name: DynamicCamera
   m_TagString: MainCamera
@@ -86,21 +86,6 @@ MonoBehaviour:
       BarrelClipping: 0.25
       Anamorphism: 0
   BlendHint: 0
---- !u!114 &2970030873548940842
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4539243621571961777}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61b4c0df54142484e8e1ea7e4d8d4edc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _offset: {x: 0, y: 1, z: 0}
-  _smoothingSpeed: 1
-  _maxDistFromDropper: 20
 --- !u!114 &7953223039414077722
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -118,3 +103,18 @@ MonoBehaviour:
   FocusTarget: {fileID: 0}
   FocusOffset: 0
   Profile: {fileID: 11400000, guid: 804493191e303d541af3c0e0d4319cc9, type: 2}
+--- !u!114 &2970030873548940842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4539243621571961777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61b4c0df54142484e8e1ea7e4d8d4edc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _offset: {x: 0, y: 1, z: 0}
+  _smoothingSpeed: 1
+  _maxDistFromDropper: 20

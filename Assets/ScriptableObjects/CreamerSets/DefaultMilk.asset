@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a5b895982bfcc9458efad983999d6c1, type: 3}
+  m_Name: DefaultMilk
+  m_EditorClassIdentifier: 
+  _creamerPrefabs:
+  - {fileID: 4547299249613597434, guid: 7b15507af3e07d8498b2160b35e191f4, type: 3}
+  _cost: 0
+  _setIcon: {fileID: 2800000, guid: 09c2c2cedfed7e74bad8ab41667132b9, type: 3}
+  _uniqueID: 4
