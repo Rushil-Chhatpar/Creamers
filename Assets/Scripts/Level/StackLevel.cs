@@ -9,7 +9,7 @@ public class StackLevel : Level
     public readonly int InitialCamPriority = 10;
     private StackDropper _stackDropper;
     private CinemachineCamera _dynamicCam;
-    [SerializeField, UnityEngine.Range(10.0f, 100.0f)]
+    [SerializeField, UnityEngine.Range(0.01f, 100.0f)]
     private float _explosionForceForward = 50.0f;
 
     private CameraController _cameraController;
