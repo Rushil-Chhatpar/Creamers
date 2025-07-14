@@ -97,7 +97,7 @@
 .tabs-button {
     width: 400px;
     height: 180px;
-    background-color: rgb(255, 255, 255);
+    background-color: rgba(0, 0, 0, 0);
     border-color: white;
     border-radius: 10px;
     border-width: 0;
