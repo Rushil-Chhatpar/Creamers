@@ -12,21 +12,22 @@ public class ShopMenuScreen : ScreenBase
 
     [SerializeField] private Texture2D _creamersTabIcon;
     [SerializeField] private Texture2D _themesTabIcon;
+    [SerializeField] private Texture2D _currencyTabIcon;
     
     private Button _closeButton;
     private Button _creamersTabButton;
     private Button _themesTabButton;
+    private Button _currencyTabButton;
     private List<CreamerSetButton> _itemButtons = new List<CreamerSetButton>();
 
     private VisualElement _tabsContainer;
 
     private readonly string _baseContainerClassName = "base-container";
     private readonly string _closeButtonClassName = "close-button";
-    private readonly string _tabsButton = "tabs-button";
+    private readonly string _tabsButtonClassName = "tabs-button";
     private readonly string _horizontalButtonBoxClassName = "horizontal-button-box";
     private readonly string _itemButtonClassName = "item-button";
     private readonly string _tabsContainerClassName = "tabs-container";
-    private readonly string _tabsButtonClassName = "tabs-button";
     private readonly string _buttonBoxClassName = "button-box";
     private readonly string _itemButtonRenderClassName = "item-button-render";
     private readonly string _itemButtonLabelClassName = "item-button-label";
@@ -38,7 +39,7 @@ public class ShopMenuScreen : ScreenBase
         if (Application.isPlaying)
             return;
 
-        //StartCoroutine(Initialize());
+        StartCoroutine(Initialize());
     }
 
     public override void RemoveFromView()
@@ -83,17 +84,23 @@ public class ShopMenuScreen : ScreenBase
 
         VisualElement tabsContainer = Create<VisualElement>(_tabsContainerClassName);
 
-        Button creamersTabButton = Create<Button>(_tabsButton);
+        Button creamersTabButton = Create<Button>(_tabsButtonClassName);
         creamersTabButton.clicked += CreamersTabButtonClicked;
         Background creamersTabBG;
         creamersTabBG.texture = _creamersTabIcon;
         creamersTabButton.iconImage = creamersTabBG;
 
-        Button themesTabButton = Create<Button>(_tabsButton);
+        Button themesTabButton = Create<Button>(_tabsButtonClassName);
         themesTabButton.clicked += ThemesTabButtonClicked;
         Background themesTabBG;
         themesTabBG.texture = _themesTabIcon;
         themesTabButton.iconImage = themesTabBG;
+
+        Button currencyTabButton = Create<Button>(_tabsButtonClassName);
+        currencyTabButton.clicked += CurrencyTabButtonClicked;
+        Background currencyTabBG;
+        currencyTabBG.texture = _currencyTabIcon;
+        currencyTabButton.iconImage = _currencyTabIcon;
 
         VisualElement buttonBox = Create<VisualElement>(_buttonBoxClassName);
 
@@ -123,9 +130,11 @@ public class ShopMenuScreen : ScreenBase
         _closeButton = closeButton;
         _creamersTabButton = creamersTabButton;
         _themesTabButton = themesTabButton;
+        _currencyTabButton = currencyTabButton;
 
         tabsContainer.Add(creamersTabButton);
         tabsContainer.Add(themesTabButton);
+        tabsContainer.Add(currencyTabButton);
 
         root.Add(baseContainer);
         root.Add(closeButton);
@@ -144,6 +153,10 @@ public class ShopMenuScreen : ScreenBase
     }
 
     private void ThemesTabButtonClicked()
+    {
+    }
+
+    private void CurrencyTabButtonClicked()
     {
     }
 
