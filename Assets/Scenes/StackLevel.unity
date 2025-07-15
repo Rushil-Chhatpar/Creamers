@@ -3561,6 +3561,10 @@ PrefabInstance:
       propertyPath: _currencyTabIcon
       value: 
       objectReference: {fileID: 2800000, guid: 37d38d144985b3244aab796f43073ff3, type: 3}
+    - target: {fileID: 146883445908311481, guid: ecd8d648f9e1b69439b3f467a31cc512, type: 3}
+      propertyPath: _numOfObjectButtons
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 7620156439261586316, guid: ecd8d648f9e1b69439b3f467a31cc512, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.7479079
@@ -6429,6 +6433,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8893506113278844144, guid: e66b5df57dc312a4f991a7adcd076fbc, type: 3}
+      propertyPath: CreamerSets.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8893506113278844144, guid: e66b5df57dc312a4f991a7adcd076fbc, type: 3}
+      propertyPath: 'CreamerSets.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 6d0f54c1fe0b3334d95ecc8c3115b5ec, type: 2}
+    - target: {fileID: 8893506113278844144, guid: e66b5df57dc312a4f991a7adcd076fbc, type: 3}
+      propertyPath: 'CreamerSets.Array.data[2]'
+      value: 
+      objectReference: {fileID: 11400000, guid: b6e191b8a9759d44c98ba304d4e72a5e, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
