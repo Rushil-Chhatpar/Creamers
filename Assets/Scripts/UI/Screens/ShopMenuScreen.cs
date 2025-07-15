@@ -13,6 +13,9 @@ public class ShopMenuScreen : ScreenBase
     [SerializeField] private Texture2D _creamersTabIcon;
     [SerializeField] private Texture2D _themesTabIcon;
     [SerializeField] private Texture2D _currencyTabIcon;
+
+    [SerializeField, Tooltip("Number of buttons in one horizontal strip. All the buttons will be alligned in as many horizontal strips as required.")]
+    private int _numOfObjectButtons = 3;
     
     private Button _closeButton;
     private Button _creamersTabButton;
@@ -21,6 +24,9 @@ public class ShopMenuScreen : ScreenBase
     private List<CreamerSetButton> _itemButtons = new List<CreamerSetButton>();
 
     private VisualElement _tabsContainer;
+    private VisualElement _creamersMenuContainer;
+    private VisualElement _themesMenuContainer;
+    private VisualElement _currencyMenuContainer;
 
     private readonly string _baseContainerClassName = "base-container";
     private readonly string _closeButtonClassName = "close-button";
@@ -82,6 +88,8 @@ public class ShopMenuScreen : ScreenBase
         Button closeButton = Create<Button>(_closeButtonClassName);
         closeButton.clicked += CloseButtonClicked;
 
+        #region Tab Buttons
+
         VisualElement tabsContainer = Create<VisualElement>(_tabsContainerClassName);
 
         Button creamersTabButton = Create<Button>(_tabsButtonClassName);
@@ -102,20 +110,22 @@ public class ShopMenuScreen : ScreenBase
         currencyTabBG.texture = _currencyTabIcon;
         currencyTabButton.iconImage = _currencyTabIcon;
 
-        VisualElement buttonBox = Create<VisualElement>(_buttonBoxClassName);
+        #endregion
 
         #region Creamer Set Buttons
 
+        _creamersMenuContainer = Create<VisualElement>(_buttonBoxClassName);
+
         VisualElement horizontalBox = Create<VisualElement>(_horizontalButtonBoxClassName);
-        buttonBox.Add(horizontalBox);
+        _creamersMenuContainer.Add(horizontalBox);
 
         int counter = 0;
         foreach (CreamerSet set in Game.Instance.CreamerSets)
         {
-            if (counter >= 3)
+            if (counter >= _numOfObjectButtons)
             {
                 horizontalBox = Create<VisualElement>(_horizontalButtonBoxClassName);
-                buttonBox.Add(horizontalBox);
+                _creamersMenuContainer.Add(horizontalBox);
                 counter = 0;
             }
             CreamerSetButton setButton = Create<CreamerSetButton>(_itemButtonClassName);
@@ -124,6 +134,18 @@ public class ShopMenuScreen : ScreenBase
             horizontalBox.Add(setButton);
             counter++;
         }
+
+        #endregion
+
+        #region Theme Set Buttons
+
+        _themesMenuContainer = Create<VisualElement>(_buttonBoxClassName);
+
+        #endregion
+
+        #region Currency Set Buttons
+
+        _currencyMenuContainer = Create<VisualElement>(_buttonBoxClassName);
 
         #endregion
 
@@ -139,7 +161,8 @@ public class ShopMenuScreen : ScreenBase
         root.Add(baseContainer);
         root.Add(closeButton);
         root.Add(tabsContainer);
-        root.Add(buttonBox);
+        root.Add(_creamersMenuContainer);
+        root.Add(_themesMenuContainer);
     }
 
     private void CloseButtonClicked()
@@ -150,14 +173,23 @@ public class ShopMenuScreen : ScreenBase
 
     private void CreamersTabButtonClicked()
     {
+        _themesMenuContainer.style.display = DisplayStyle.None;
+        _currencyMenuContainer.style.display = DisplayStyle.None;
+        _creamersMenuContainer.style.display = DisplayStyle.Flex;
     }
 
     private void ThemesTabButtonClicked()
     {
+        _creamersMenuContainer.style.display = DisplayStyle.None;
+        _currencyMenuContainer.style.display = DisplayStyle.None;
+        _themesMenuContainer.style.display = DisplayStyle.Flex;
     }
 
     private void CurrencyTabButtonClicked()
     {
+        _themesMenuContainer.style.display = DisplayStyle.None;
+        _creamersMenuContainer.style.display = DisplayStyle.None;
+        _currencyMenuContainer.style.display = DisplayStyle.Flex;
     }
 
     void Start()
