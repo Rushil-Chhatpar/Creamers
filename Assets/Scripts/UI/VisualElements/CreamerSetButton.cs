@@ -14,6 +14,12 @@ public class CreamerSetButton : Button
     private VisualElement _render;
     private Label _label;
 
+    public CreamerSet creamerSet
+    {
+        get { return _creamerSet; }
+        set { _creamerSet = value; }
+    }
+
     // default constructor
     public CreamerSetButton()
         : base()
@@ -53,12 +59,6 @@ public class CreamerSetButton : Button
     public void UnBindFunc()
     {
         this.clicked -= OnClicked;
-    }
-
-    public CreamerSet creamerSet
-    {
-        get { return _creamerSet; }
-        set { _creamerSet = value; }
     }
 
     private void OnClicked()
