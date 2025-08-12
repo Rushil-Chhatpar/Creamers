@@ -6,7 +6,7 @@ using UnityEditor;
 #endif
 
 [CreateAssetMenu(menuName = "CreamerSet")]
-public class CreamerSet : ScriptableObject
+public class CreamerSet : ScriptableObject, IPurchasable
 {
     public List<GameObject> _creamerPrefabs;
     public int _cost;
@@ -26,6 +26,11 @@ public class CreamerSet : ScriptableObject
     {
         if (UniqueId == -1)
             UniqueId = id;
+    }
+
+    public void Purchase()
+    {
+        throw new System.NotImplementedException();
     }
 }
 
