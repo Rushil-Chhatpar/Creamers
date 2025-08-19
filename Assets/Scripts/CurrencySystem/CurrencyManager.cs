@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class CurrencyManager : MonoBehaviour, IDataPersistence
@@ -5,6 +6,7 @@ public class CurrencyManager : MonoBehaviour, IDataPersistence
     private static CurrencyManager _instance;
 
     public int CurrencyPoints { get; private set; }
+    private HashSet<int> _purchasedItems = new HashSet<int>();
 
     public static CurrencyManager Instance
     {

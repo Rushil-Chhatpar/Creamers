@@ -18,6 +18,7 @@ public class CreamerSet : ScriptableObject, IPurchasable
         get { return _uniqueID; }
         private set { _uniqueID = value; }
     }
+    public int Cost => _cost;
 
     // TODO: Disable this later after development
     [ReadOnly] public int _uniqueID = -1;
