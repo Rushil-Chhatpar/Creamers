@@ -42,10 +42,14 @@ public class CurrencyManager : MonoBehaviour, IDataPersistence
     public void LoadData(GameData data)
     {
         this.CurrencyPoints = data.CurrencyPoints;
+        this._purchasedItems = new HashSet<int>(data.PurchasedItems);
     }
 
     public void SaveData(ref GameData data)
     {
         data.CurrencyPoints = this.CurrencyPoints;
+
+        // convert HashSet to List
+        data.PurchasedItems = new List<int>(_purchasedItems);
     }
 }

@@ -31,7 +31,7 @@ public class CreamerSet : ScriptableObject, IPurchasable
 
     public void Purchase()
     {
-        throw new System.NotImplementedException();
+        Game.Instance.CurrentLevel.SetCreamerSet(UniqueId);
     }
 }
 
