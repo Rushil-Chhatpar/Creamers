@@ -52,4 +52,9 @@ public class CurrencyManager : MonoBehaviour, IDataPersistence
         // convert HashSet to List
         data.PurchasedItems = new List<int>(_purchasedItems);
     }
+
+    public void PurchaseItem(int UniqueID)
+    {
+
+    }
 }

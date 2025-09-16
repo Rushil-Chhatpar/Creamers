@@ -21,7 +21,7 @@ public class CreamerSet : ScriptableObject, IPurchasable
     public int Cost => _cost;
 
     // TODO: Disable this later after development
-    [ReadOnly] public int _uniqueID = -1;
+    [ReadOnly] private int _uniqueID = -1;
 
     public void AssignUniqueID(int id)
     {
@@ -32,17 +32,18 @@ public class CreamerSet : ScriptableObject, IPurchasable
     public void Purchase()
     {
         Game.Instance.CurrentLevel.SetCreamerSet(UniqueId);
+        CurrencyManager.Instance.PurchaseItem(_uniqueID);
     }
 }
 
 
 #if UNITY_EDITOR
 [InitializeOnLoad]
-public class CreamerSetIDAssigner
+public class PurchasableUniqueIDAssigner
 {
-    private const string KEY_ID_COUNTER = "CreamerSetIDCounter";
+    private const string KEY_ID_COUNTER = "PurchasableIDCounter";
 
-    static CreamerSetIDAssigner()
+    static PurchasableUniqueIDAssigner()
     {
         AssetModificationProcessor processor = new CustomAssetModificationProcessor();
     }
@@ -62,18 +63,18 @@ public class CreamerSetIDAssigner
 
     private static void AssignIDsToSets()
     {
-        string[] guids = AssetDatabase.FindAssets("t:CreamerSet");
-        int idCounter = EditorPrefs.GetInt(KEY_ID_COUNTER, CreamerSet.DEFAULT_ID);
+        string[] guids = AssetDatabase.FindAssets("t:ScriptableObject");
+        int idCounter = EditorPrefs.GetInt(KEY_ID_COUNTER, IPurchasable.DEFAULT_ID);
 
         foreach (string guid in guids)
         {
             string path = AssetDatabase.GUIDToAssetPath(guid);
-            CreamerSet set = AssetDatabase.LoadAssetAtPath<CreamerSet>(path);
-            if (set && set.UniqueId == -1)
+            ScriptableObject so = AssetDatabase.LoadAssetAtPath<ScriptableObject>(path);
+            if (so && so is IPurchasable purchasable)
             {
-                set.AssignUniqueID(idCounter);
+                purchasable.AssignUniqueID(idCounter);
                 idCounter++;
-                EditorUtility.SetDirty(set);
+                EditorUtility.SetDirty(so);
             }
         }
 
