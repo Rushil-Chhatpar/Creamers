@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
@@ -34,7 +35,7 @@ public class Game : MonoBehaviour
 
     public static UnityEvent GameOverEvent = new UnityEvent();
     public Level CurrentLevel = null;
-    public CreamerSet _currentCreamerSet = null;
+    public CreamerSet DefaultCreamerSet = null;
 
     [SerializeField] public List<CreamerSet> CreamerSets = new List<CreamerSet>();
 
@@ -49,6 +50,11 @@ public class Game : MonoBehaviour
             _instance = this;
             DontDestroyOnLoad(gameObject);
         }
+
+        Game[] instances = FindObjectsByType<Game>(FindObjectsSortMode.None);
+        Debug.Assert(instances.Length == 1, "There should be only 1 Game class object!!!", this);
+        Debug.Assert(DefaultCreamerSet != null, "Default creamer set not set!!!", this);
+
         // Instantiate the singleton managers
         _ = ScoreManager.Instance;
         _ = ScreenManager.Instance;

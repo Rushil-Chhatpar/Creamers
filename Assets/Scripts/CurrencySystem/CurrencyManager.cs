@@ -57,4 +57,13 @@ public class CurrencyManager : MonoBehaviour, IDataPersistence
     {
 
     }
+
+    public List<CreamerSet> GetPurchasedCreamerSets()
+    {
+        List<CreamerSet> set = new List<CreamerSet>();
+
+        // TODO: https://tcmstudios.atlassian.net/browse/SCRUM-171?focusedCommentId=10115
+
+        return set;
+    }
 }

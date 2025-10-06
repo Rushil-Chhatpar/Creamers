@@ -16,4 +16,3 @@ MonoBehaviour:
   - {fileID: 4547299249613597434, guid: 7b15507af3e07d8498b2160b35e191f4, type: 3}
   _cost: 400
   _setIcon: {fileID: 2800000, guid: d35318652e9517d4db4a9a5e001fa4d6, type: 3}
-  _uniqueID: 3

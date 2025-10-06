@@ -6435,7 +6435,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8893506113278844144, guid: e66b5df57dc312a4f991a7adcd076fbc, type: 3}
       propertyPath: CreamerSets.Array.size
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8893506113278844144, guid: e66b5df57dc312a4f991a7adcd076fbc, type: 3}
       propertyPath: 'CreamerSets.Array.data[1]'

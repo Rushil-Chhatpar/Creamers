@@ -27,6 +27,7 @@ public abstract class Dropper : MonoBehaviour, IDataPersistence
     {
         int id = data.CreamerSetID;
 
+        // TODO: get from the purchased creamer sets not all sets
         foreach (CreamerSet set in Game.Instance.CreamerSets)
         {
             if (set.UniqueId == id)
