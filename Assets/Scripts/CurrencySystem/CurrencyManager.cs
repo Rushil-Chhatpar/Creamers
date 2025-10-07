@@ -8,6 +8,11 @@ public class CurrencyManager : MonoBehaviour, IDataPersistence
     public int CurrencyPoints { get; private set; }
     private HashSet<int> _purchasedItems = new HashSet<int>();
 
+
+    // Class specific items
+    private List<CreamerSet> _purchasedCreamerSets = new List<CreamerSet>();
+    //
+
     public static CurrencyManager Instance
     {
         get
@@ -43,6 +48,15 @@ public class CurrencyManager : MonoBehaviour, IDataPersistence
     {
         this.CurrencyPoints = data.CurrencyPoints;
         this._purchasedItems = new HashSet<int>(data.PurchasedItems);
+
+        _purchasedCreamerSets.Clear();
+        foreach (CreamerSet set in Game.Instance.CreamerSets)
+        {
+            if (_purchasedItems.Contains(set.UniqueId))
+            {
+                _purchasedCreamerSets.Add(set);
+            }
+        }
     }
 
     public void SaveData(ref GameData data)
@@ -55,15 +69,11 @@ public class CurrencyManager : MonoBehaviour, IDataPersistence
 
     public void PurchaseItem(int UniqueID)
     {
-
+        _purchasedItems.Add(UniqueID);
     }
 
-    public List<CreamerSet> GetPurchasedCreamerSets()
+    public ref readonly List<CreamerSet> GetPurchasedCreamerSets()
     {
-        List<CreamerSet> set = new List<CreamerSet>();
-
-        // TODO: https://tcmstudios.atlassian.net/browse/SCRUM-171?focusedCommentId=10115
-
-        return set;
+        return ref _purchasedCreamerSets;
     }
 }
