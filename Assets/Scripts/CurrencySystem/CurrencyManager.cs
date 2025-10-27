@@ -56,6 +56,7 @@ public class CurrencyManager : MonoBehaviour, IDataPersistence
             {
                 _purchasedCreamerSets.Add(set);
             }
+            // do the same for every type of items to hold a record
         }
     }
 
