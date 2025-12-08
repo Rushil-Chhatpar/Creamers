@@ -38,6 +38,17 @@ public class DropperHeightTrigger : MonoBehaviour
         _parent.UpwardsMoveSpeedMultiplier = num;
     }
 
+    public void SetTriggerHeight(float height)
+    {
+        Vector3 size = _heightTrigger.size;
+        size.y = height;
+        _heightTrigger.size = size;
+
+        Vector3 center = _heightTrigger.center;
+        center.y = height / 2.0f;
+        _heightTrigger.center = center;
+    }
+
     //private void OnTriggerEnter(Collider other)
     //{
     //    if (other.GetComponent<CreamerBase>()?.IsLanded == true)
