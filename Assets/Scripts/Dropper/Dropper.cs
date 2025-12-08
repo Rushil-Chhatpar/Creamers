@@ -43,7 +43,7 @@ public abstract class Dropper : MonoBehaviour, IDataPersistence
         data.CreamerSetID = _creamerSet.UniqueId;
     }
 
-    public void SetCreamerSet(int cremaerSetID)
+    public virtual void SetCreamerSet(int cremaerSetID)
     {
         foreach (CreamerSet set in Game.Instance.CreamerSets)
         {

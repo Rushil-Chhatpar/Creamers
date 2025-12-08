@@ -165,4 +165,26 @@ public class StackDropper : Dropper
             }
         }
     }
+
+    public override void SetCreamerSet(int cremaerSetID)
+    {
+        base.SetCreamerSet(cremaerSetID);
+
+        float totalHeight = 0.0f;
+        for (int i = 0; i < _creamerSet._creamerPrefabs.Count; i++)
+        {
+            // get the bounds of the creamer
+            BoxCollider collider = _creamerSet._creamerPrefabs[i].GetComponent<BoxCollider>();
+            if (collider != null)
+            {
+                Vector3 worldSize = Vector2.Scale(collider.size, collider.transform.lossyScale);
+                totalHeight += worldSize.y;
+            }
+        }
+        
+        float averageHeight = totalHeight / _creamerSet._creamerPrefabs.Count;
+
+        // set the trigger height to half the average height of the creamers in the set
+        _trigger.SetTriggerHeight(averageHeight / 2);
+    }
 }
