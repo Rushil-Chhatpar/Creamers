@@ -429,6 +429,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 6938495540e77ab4483eb4b6de049005, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 66d3c96866fdf634c8f8d2fcc297c32e, type: 2}
     - target: {fileID: 919132149155446097, guid: 6938495540e77ab4483eb4b6de049005, type: 3}
       propertyPath: m_Name
       value: Napkin_Dispenser_01
@@ -2173,7 +2177,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 66d3c96866fdf634c8f8d2fcc297c32e, type: 2}
     - target: {fileID: 919132149155446097, guid: dfaf50d89800da8419cc6b1ef8133342, type: 3}
       propertyPath: m_Name
-      value: Mustard_bottle_01
+      value: Ketchup_bottle_01
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3237,7 +3241,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 3917d931915c3e94ca019b1431d43564, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 66d3c96866fdf634c8f8d2fcc297c32e, type: 2}
+      objectReference: {fileID: 2100000, guid: 0b45986c99429e34395c7e95de1f7b52, type: 2}
     - target: {fileID: 919132149155446097, guid: 3917d931915c3e94ca019b1431d43564, type: 3}
       propertyPath: m_Name
       value: Plastic_Cup_01
