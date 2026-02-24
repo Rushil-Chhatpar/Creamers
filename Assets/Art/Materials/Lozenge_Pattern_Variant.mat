@@ -53,7 +53,8 @@ Material:
     - _Metallic: 0
     - _OcclusionStrength: 0
     - _Smoothness: 0.825
-    m_Colors: []
+    m_Colors:
+    - _Color: {r: 0.79773766, g: 0.79773766, b: 0.79773766, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!114 &6499243264685671828
