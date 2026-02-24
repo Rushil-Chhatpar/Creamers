@@ -56,7 +56,7 @@ public class CreamerBase : MonoBehaviour
         //ScoreManager.Instance.ScoreEvent.Invoke(_scoreValue);
         Game.Instance.CurrentLevel.CreamerLandEventCallback();
         _isFalling = false;
-        this.enabled = false;
+        //this.enabled = false;
     }
 
     //private void Update()

@@ -9,16 +9,18 @@ public class StackDropper : Dropper
 
     private float _heightToClimb = 0;
 
-    private Vector3 _movePos;
     private Vector3 _startPos;
+    private Vector3 _worldRight;
     [SerializeField] private float _moveDist = 1;
     [SerializeField, Range(0.0f, 0.1f)] private float _speedIncreaaseRate = 0.02f;
+    [SerializeField, Range(0.01f, 1.0f)] private float _limitPaddingPercent  = 0.05f;
 
     [SerializeField] private bool _useSin = true;
     [ShowIf("_useSin", true)][SerializeField, Range(0.001f, 1.5f)] private float _sinMoveSpeed = 1;
     [ShowIf("_useSin", false)][SerializeField, Range(0.001f, 3f)] private float _nonSinMoveSpeed = 0.7f;
 
     private float _leftX = 0, _rightX = 0;
+    private Vector3 _leftLimit, _rightLimit;
     private int _horizontalDir = 1;
 
     [SerializeField] private float _verticalMoveSpeed = 1;
@@ -49,20 +51,18 @@ public class StackDropper : Dropper
     {
         base.Start();
         _startPos = transform.position;
+        _worldRight = transform.right;
+
         _tapButtonPressed.AddListener(TapButtonPressedAction);
         _trigger = GetComponentInChildren<DropperHeightTrigger>();
 
-        // Debug.Assert(_creamerPrefabs.Count > 0, "Cannot find gameobject: Creamer!!!");
         Debug.Assert(_creamerSet._creamerPrefabs.Count > 0, "Cannot find gameobject: Creamer!!!", this);
         SpawnAtBase();
-        //ScoreManager.Instance.ScoreEvent.AddListener(ScoreEvent);
-        //Game.GameOverEvent.AddListener(GameOver);
 
         BoxCollider collider = _creamerSet._creamerPrefabs[0].GetComponent<BoxCollider>();
 
         if (collider != null)
         {
-            //_heightToClimb = collider.size.y;
             Vector3 worldSize = Vector2.Scale(collider.size, collider.transform.lossyScale);
             _heightToClimb = worldSize.y;
         }
@@ -70,13 +70,14 @@ public class StackDropper : Dropper
         float X = transform.position.x;
         _leftX = X - _moveDist;
         _rightX = X + _moveDist;
+        float totalDist = _moveDist - (_moveDist * _limitPaddingPercent);
+        _leftLimit = transform.position - (_worldRight * totalDist);
+        _rightLimit = transform.position + (_worldRight * totalDist);
     }
 
     protected override void ScoreEvent(int score)
     {
         _trigger.CheckForTrigger();
-        //float newY = transform.position.y + (_heightToClimb * UpwardsMoveSpeedMultiplier);
-        //transform.position = new Vector3(transform.position.x, newY, transform.position.z);
         SpawnAtBase();
         AdjustDropperMovement();
     }
@@ -97,6 +98,11 @@ public class StackDropper : Dropper
         _creamerIndex = (_creamerIndex + 1) % _creamerSet._creamerPrefabs.Count;
     }
 
+    void LateUpdate()
+    {
+        _trigger.CheckForTrigger();
+    }
+
     void FixedUpdate()
     {
         // TODO: Need a better fix for this 
@@ -104,30 +110,35 @@ public class StackDropper : Dropper
         {
             _trigger.CheckForTrigger();
         }
+
+        Vector3 offset = Vector3.zero;
         // left and right
         if (_useSin)
         {
-            _movePos.x = _startPos.x + Mathf.Sin(Time.time * _sinMoveSpeed) * _moveDist;
+            offset = _worldRight * Mathf.Sin(Time.time * _sinMoveSpeed) * _moveDist;
         }
         else
         {
-            _movePos.x = transform.position.x + (_horizontalDir * Time.fixedDeltaTime * _nonSinMoveSpeed);
-            if (_movePos.x > _rightX || _movePos.x < _leftX)
+            offset = transform.position + _worldRight * (_horizontalDir * Time.fixedDeltaTime * _nonSinMoveSpeed);
+            Vector3 center = new Vector3(_startPos.x, transform.position.y, _startPos.z);
+            float distance = Vector3.Distance(transform.position, center);
+            if (distance > _moveDist)
             {
+                if(_horizontalDir == 1)
+                {
+                    offset = _rightLimit;
+                }
+                else
+                {
+                    offset = _leftLimit;
+                }
                 _horizontalDir *= -1;
-                //_movePos.x = _horizontalDir * _moveDist;
             }
         }
 
-        // up
-        //if (UpwardsMoveSpeedMultiplier > 0)
-        //{
-        //    _movePos.y = transform.position.y + _heightToClimb;
-        //    UpwardsMoveSpeedMultiplier = 0;
-        //}
-        _movePos.y = transform.position.y + (_verticalMoveSpeed * Time.fixedDeltaTime * UpwardsMoveSpeedMultiplier);
+        float Y = transform.position.y + (_verticalMoveSpeed * Time.fixedDeltaTime * UpwardsMoveSpeedMultiplier);
 
-        transform.position = new Vector3(_movePos.x, _movePos.y, _startPos.z);
+        transform.position = new Vector3(offset.x, Y, offset.z);
     }
 
     public void TapButtonPressed()
@@ -139,7 +150,6 @@ public class StackDropper : Dropper
     {
         _currentCreamer.transform.SetParent(null);
         _currentCreamer.GetComponent<CreamerBase>().Drop();
-        //GameObject creamer = Instantiate(_creamerPrefabs, transform.position, Quaternion.identity);
     }
 
     private void AdjustDropperMovement()
