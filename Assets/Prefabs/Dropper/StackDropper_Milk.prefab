@@ -168,9 +168,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _creamerSet: {fileID: 11400000, guid: 1e076a81d4d25704b83be6628483fc67, type: 2}
-  _moveDist: 0.2
+  _moveDist: 0.1
   _speedIncreaaseRate: 0.019
   _useSin: 0
   _sinMoveSpeed: 1.5
-  _nonSinMoveSpeed: 0.06
+  _nonSinMoveSpeed: 0.09
   _verticalMoveSpeed: 1

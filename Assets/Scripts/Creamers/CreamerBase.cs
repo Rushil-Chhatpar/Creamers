@@ -38,7 +38,8 @@ public class CreamerBase : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.GetComponent<CreamerBase>() || collision.gameObject.GetComponent<BasePlane>())
+        CreamerBase creamer = collision.gameObject.GetComponent<CreamerBase>();
+        if ((creamer && creamer.IsLanded) || collision.gameObject.GetComponent<BasePlane>())
         {
             if (!_isLanded)
             {
@@ -56,7 +57,7 @@ public class CreamerBase : MonoBehaviour
         //ScoreManager.Instance.ScoreEvent.Invoke(_scoreValue);
         Game.Instance.CurrentLevel.CreamerLandEventCallback();
         _isFalling = false;
-        this.enabled = false;
+        //this.enabled = false;
     }
 
     //private void Update()
