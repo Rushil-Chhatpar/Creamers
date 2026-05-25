@@ -55,13 +55,18 @@ public class ScoreManager : MonoBehaviour, IDataPersistence
 
     private void ScoreEventCallback(int k)
     {
-        if (k >= 0)
+        if (k > 0)
         {
             Score += k;
             if (Score > HighScore)
             {
                 HighScore = Score;
             }
+            UpdateScoreEvent.Invoke(Score);
+        }
+        else if(k == 0)
+        {
+            Score = 0;
             UpdateScoreEvent.Invoke(Score);
         }
     }
